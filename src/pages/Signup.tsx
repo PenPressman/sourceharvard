@@ -270,7 +270,7 @@ export default function SignupPage() {
                   <RoleCard
                     icon={<Building2 className="w-4 h-4" />}
                     title="Founder"
-                    subtitle="Building a startup. Harvard .edu required."
+                    subtitle="Building a startup. Harvard domain verification required."
                     role="founder"
                     selected={selectedRole === "founder"}
                     onClick={() => setSelectedRole("founder")}
@@ -286,7 +286,7 @@ export default function SignupPage() {
                   <RoleCard
                     icon={<GraduationCap className="w-4 h-4" />}
                     title="Student"
-                    subtitle="Exploring roles & co-founding. .edu required."
+                    subtitle="Exploring roles & co-founding. Harvard domain verification required."
                     role="student"
                     selected={selectedRole === "student"}
                     onClick={() => setSelectedRole("student")}

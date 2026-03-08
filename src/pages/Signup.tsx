@@ -257,7 +257,7 @@ export default function SignupPage() {
               </div>
               <div>
                 <Label className="text-sm font-medium">Email *</Label>
-                <Input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="your@email.com" className="mt-1.5" />
+                <Input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="name@college.harvard.edu" className="mt-1.5" />
               </div>
               <div>
                 <Label className="text-sm font-medium">Password *</Label>

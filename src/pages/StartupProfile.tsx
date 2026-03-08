@@ -204,6 +204,34 @@ export default function StartupProfilePage() {
             )}
 
             <div><p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Harvard Affiliation</p><p className="text-foreground font-semibold text-sm">{startup.harvard_affiliation}</p></div>
+
+            {/* Contact Info */}
+            {s.contact_email && (() => {
+              const canSee = canSeeContactAs(s);
+              const reason = contactHiddenReason(s);
+              return (
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Contact</p>
+                  {canSee ? (
+                    <a href={`mailto:${s.contact_email}`} className="inline-flex items-center gap-1.5 text-primary hover:underline text-sm">
+                      <Mail className="w-3.5 h-3.5" />{s.contact_email}
+                    </a>
+                  ) : reason === "hidden" ? (
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <Lock className="w-3.5 h-3.5" />Contact info is private
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <Lock className="w-3.5 h-3.5" />
+                      {user
+                        ? `Only visible to ${reason}`
+                        : <><span>Sign in as an investor or founder to view contact info</span></>
+                      }
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
           </div>
 
           {/* Social links */}

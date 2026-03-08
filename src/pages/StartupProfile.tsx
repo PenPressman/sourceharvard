@@ -3,9 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Globe, Users, Calendar, TrendingUp, Briefcase, Clock, Twitter, Linkedin, Lock, ExternalLink, Building2 } from "lucide-react";
+import { ArrowLeft, Globe, Users, Calendar, TrendingUp, Briefcase, Clock, Twitter, Linkedin, Lock, ExternalLink, Building2, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import EndorseButton from "@/components/EndorseButton";
+import SaveButton from "@/components/SaveButton";
 import type { Database } from "@/integrations/supabase/types";
 
 type Startup = Database["public"]["Tables"]["startups"]["Row"];

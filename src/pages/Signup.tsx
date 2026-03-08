@@ -253,7 +253,7 @@ export default function SignupPage() {
             <form onSubmit={handleNextToProfile} className="bg-card border border-border rounded-xl p-6 shadow-card space-y-4">
               <div>
                 <Label className="text-sm font-medium">Full Name *</Label>
-                <Input value={fullName} onChange={e => setFullName(e.target.value)} required placeholder="Jane Smith" className="mt-1.5" />
+                <Input value={fullName} onChange={e => setFullName(e.target.value)} required placeholder="John Harvard" className="mt-1.5" />
               </div>
               <div>
                 <Label className="text-sm font-medium">Email *</Label>

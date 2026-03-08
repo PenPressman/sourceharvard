@@ -113,7 +113,7 @@ Student Startups<br />
           <div className="flex gap-3 justify-center">
               <Link to="/signup">
                 <Button className="bg-primary text-primary-foreground hover:bg-crimson-light h-10 px-5 font-semibold">
-                  Join as Founder
+                  Join now
                 </Button>
               </Link>
               <Link to="/login">

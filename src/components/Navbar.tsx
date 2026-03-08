@@ -28,7 +28,7 @@ export default function Navbar() {
             <span className="text-primary-foreground font-display font-bold text-sm">S</span>
           </div>
           <span className="font-display font-semibold text-foreground text-[15px] tracking-tight hidden sm:inline">
-            Source @Harvard. 
+            ​SOURCE  
           </span>
         </Link>
 

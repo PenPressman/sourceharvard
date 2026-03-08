@@ -102,8 +102,7 @@ export default function BrowsePage() {
             <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
             Harvard Startup Community
           </div>
-          <h1 className="font-display font-bold text-4xl sm:text-5xl text-foreground mb-4 leading-tight tracking-tight">Discover Harvard
-Student Startups<br />
+          <h1 className="font-display font-bold text-4xl sm:text-5xl text-foreground mb-4 leading-tight tracking-tight">Discover Harvard<br />
             <span className="text-primary">Student Startups</span>
           </h1>
           <p className="text-muted-foreground text-base mb-8 leading-relaxed max-w-lg mx-auto">

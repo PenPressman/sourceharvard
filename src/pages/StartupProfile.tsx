@@ -113,7 +113,7 @@ export default function StartupProfilePage() {
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <h1 className="font-display font-bold text-2xl text-foreground tracking-tight">{startup.name}</h1>
-                <div className="flex gap-2 flex-wrap">
+                <div className="flex gap-2 flex-wrap items-center">
                   {startup.is_hiring && (
                     <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-semibold">
                       <Briefcase className="w-3 h-3" />Hiring
@@ -129,6 +129,7 @@ export default function StartupProfilePage() {
                       Co-Founder Needed
                     </span>
                   )}
+                  <SaveButton startupId={startup.id} />
                 </div>
               </div>
               <p className="text-muted-foreground mt-1.5 leading-relaxed">{startup.description}</p>

@@ -31,6 +31,7 @@ const App = () => (
             <Route path="/startup/:id" element={<StartupProfile />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

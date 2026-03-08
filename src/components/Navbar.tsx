@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { LogOut, Plus, BookOpen, LayoutDashboard, Bookmark } from "lucide-react";
+import { LogOut, Plus, BookOpen, LayoutDashboard, Bookmark, ShieldAlert } from "lucide-react";
 
 const ROLE_BADGE: Record<string, {label: string;cls: string;}> = {
   founder: { label: "Founder", cls: "bg-primary/15 text-primary border border-primary/25" },

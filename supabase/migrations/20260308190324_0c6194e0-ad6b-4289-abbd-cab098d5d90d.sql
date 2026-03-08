@@ -1,0 +1,1 @@
+ALTER TYPE public.stage_type ADD VALUE IF NOT EXISTS 'Pre-idea';

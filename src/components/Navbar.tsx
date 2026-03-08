@@ -53,6 +53,14 @@ export default function Navbar() {
                   <span className="hidden sm:inline">Dashboard</span>
                 </Button>
               </Link>
+              {role === "investor" &&
+            <Link to="/favorites">
+                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground gap-1.5 text-xs">
+                    <Bookmark className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Saved</span>
+                  </Button>
+                </Link>
+            }
               {role === "founder" &&
             <Link to="/submit">
                   <Button size="sm" className="gap-1.5 bg-primary text-primary-foreground hover:bg-crimson-light text-xs ml-1">

@@ -69,6 +69,14 @@ export default function Navbar() {
                   </Button>
                 </Link>
             }
+              {role === "admin" &&
+            <Link to="/admin">
+                  <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive gap-1.5 text-xs">
+                    <ShieldAlert className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Admin</span>
+                  </Button>
+                </Link>
+            }
               <Button
               variant="ghost"
               size="sm"

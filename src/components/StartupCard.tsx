@@ -28,6 +28,7 @@ const industryColors: Record<string, string> = {
 };
 
 const stageColors: Record<string, string> = {
+  "Pre-idea":  "bg-muted text-muted-foreground border-border",
   "Idea":      "bg-muted text-muted-foreground border-border",
   "Pre-seed":  "bg-amber-500/10 text-amber-400 border-amber-500/20",
   "Seed":      "bg-lime-500/10 text-lime-400 border-lime-500/20",

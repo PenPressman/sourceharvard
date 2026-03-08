@@ -14,7 +14,92 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      open_roles: {
+        Row: {
+          compensation: Database["public"]["Enums"]["compensation_type"]
+          created_at: string
+          hours_per_week: number
+          id: string
+          startup_id: string
+          title: string
+        }
+        Insert: {
+          compensation: Database["public"]["Enums"]["compensation_type"]
+          created_at?: string
+          hours_per_week: number
+          id?: string
+          startup_id: string
+          title: string
+        }
+        Update: {
+          compensation?: Database["public"]["Enums"]["compensation_type"]
+          created_at?: string
+          hours_per_week?: number
+          id?: string
+          startup_id?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "open_roles_startup_id_fkey"
+            columns: ["startup_id"]
+            isOneToOne: false
+            referencedRelation: "startups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      startups: {
+        Row: {
+          created_at: string
+          description: string
+          founded_year: number
+          harvard_affiliation: string
+          id: string
+          industry: Database["public"]["Enums"]["industry_type"]
+          is_hiring: boolean
+          name: string
+          open_to_vc: boolean
+          stage: Database["public"]["Enums"]["stage_type"]
+          team_size: number
+          updated_at: string
+          user_id: string
+          website_url: string | null
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          founded_year: number
+          harvard_affiliation: string
+          id?: string
+          industry: Database["public"]["Enums"]["industry_type"]
+          is_hiring?: boolean
+          name: string
+          open_to_vc?: boolean
+          stage: Database["public"]["Enums"]["stage_type"]
+          team_size?: number
+          updated_at?: string
+          user_id: string
+          website_url?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          founded_year?: number
+          harvard_affiliation?: string
+          id?: string
+          industry?: Database["public"]["Enums"]["industry_type"]
+          is_hiring?: boolean
+          name?: string
+          open_to_vc?: boolean
+          stage?: Database["public"]["Enums"]["stage_type"]
+          team_size?: number
+          updated_at?: string
+          user_id?: string
+          website_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +108,17 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      compensation_type: "Paid" | "Equity" | "Unpaid"
+      industry_type:
+        | "Fintech"
+        | "Biotech"
+        | "AI/ML"
+        | "Consumer"
+        | "B2B SaaS"
+        | "Hardware"
+        | "Social Impact"
+        | "Other"
+      stage_type: "Idea" | "Pre-seed" | "Seed" | "Series A+"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +245,19 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      compensation_type: ["Paid", "Equity", "Unpaid"],
+      industry_type: [
+        "Fintech",
+        "Biotech",
+        "AI/ML",
+        "Consumer",
+        "B2B SaaS",
+        "Hardware",
+        "Social Impact",
+        "Other",
+      ],
+      stage_type: ["Idea", "Pre-seed", "Seed", "Series A+"],
+    },
   },
 } as const

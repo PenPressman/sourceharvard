@@ -11,6 +11,7 @@ import SubmitStartup from "./pages/SubmitStartup";
 import StartupProfile from "./pages/StartupProfile";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

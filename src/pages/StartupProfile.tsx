@@ -40,6 +40,27 @@ export default function StartupProfilePage() {
   const canSeeFunding  = role === "founder" || role === "investor" || role === "admin";
   const canSeePitchDeck = role === "investor" || role === "founder" || role === "admin";
 
+  // Contact visibility helpers
+  const canSeeContactAs = (startup: any) => {
+    if (!startup) return false;
+    if (startup.contact_visible_to_public) return true;
+    if (!user) return false;
+    if (role === "investor" && startup.contact_visible_to_vcs) return true;
+    if (role === "founder" && startup.contact_visible_to_founders) return true;
+    if (role === "admin") return true;
+    return false;
+  };
+
+  const contactHiddenReason = (startup: any) => {
+    if (!startup?.contact_email) return null;
+    if (startup.contact_visible_to_public) return null; // visible
+    if (!startup.contact_visible_to_vcs && !startup.contact_visible_to_founders) return "hidden"; // no one can see
+    const groups = [];
+    if (startup.contact_visible_to_vcs) groups.push("investors");
+    if (startup.contact_visible_to_founders) groups.push("founders");
+    return groups.join(" & ");
+  };
+
   useEffect(() => {
     if (!id) return;
     Promise.all([

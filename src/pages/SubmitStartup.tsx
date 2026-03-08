@@ -262,6 +262,47 @@ export default function SubmitStartupPage() {
             ))}
           </section>
 
+          {/* Contact Info & Visibility */}
+          <section className="bg-card border border-border rounded-xl p-6 shadow-card space-y-4">
+            <div>
+              <h2 className="font-display font-semibold text-foreground text-lg">Contact Info</h2>
+              <p className="text-xs text-muted-foreground mt-0.5">Control who can see your contact email on your profile.</p>
+            </div>
+            <div>
+              <Label className="text-sm font-medium">Contact Email</Label>
+              <Input
+                type="email"
+                value={form.contact_email}
+                onChange={e => setForm({ ...form, contact_email: e.target.value })}
+                placeholder="founder@example.com"
+                className="mt-1.5"
+              />
+            </div>
+            {form.contact_email && (
+              <div className="space-y-3 border-t border-border pt-4">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Visible to</p>
+                {[
+                  { key: "contact_visible_to_vcs", label: "Investors (VCs)", desc: "Approved investors can see your email" },
+                  { key: "contact_visible_to_founders", label: "Other Founders", desc: "Founders in the community can see your email" },
+                  { key: "contact_visible_to_public", label: "Everyone", desc: "Visible to anyone browsing the directory" },
+                ].map(({ key, label, desc }, i) => (
+                  <div key={key} className={i > 0 ? "border-t border-border pt-3" : ""}>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-medium text-sm text-foreground">{label}</p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
+                      </div>
+                      <Switch
+                        checked={form[key as keyof typeof form] as boolean}
+                        onCheckedChange={v => setForm({ ...form, [key]: v })}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+
           {/* Open Roles */}
           <section className="bg-card border border-border rounded-xl p-6 shadow-card">
             <div className="flex items-center justify-between mb-4">

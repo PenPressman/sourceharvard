@@ -293,7 +293,7 @@ export default function SignupPage() {
                   />
                   <RoleCard
                     icon={<Search className="w-4 h-4" />}
-                    title="Job Seeker"
+                    title="Open to Work"
                     subtitle="Browsing open roles at Harvard startups."
                     role="applicant"
                     selected={selectedRole === "applicant"}

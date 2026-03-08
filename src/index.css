@@ -2,74 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HarvardFounders Design System */
+/* HarvardFounders — Dark Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    /* Harvard Crimson palette */
-    --crimson: 350 81% 37%;
-    --crimson-light: 350 81% 44%;
-    --crimson-muted: 350 40% 94%;
-    --crimson-dark: 350 81% 28%;
+    /* ── Base ───────────────────────────── */
+    --background: 240 20% 4%;        /* #0A0A0F */
+    --foreground: 240 100% 99%;      /* #F8F8FF */
 
-    --background: 0 0% 99%;
-    --foreground: 220 20% 12%;
+    /* ── Surfaces ───────────────────────── */
+    --card: 240 17% 8%;              /* #111118 */
+    --card-foreground: 240 100% 99%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 240 100% 99%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 12%;
+    /* ── Primary — Harvard Crimson ───────── */
+    --primary: 350 71% 38%;          /* #A51C30 */
+    --primary-foreground: 240 100% 99%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 12%;
+    /* ── Secondary surface ───────────────── */
+    --secondary: 240 15% 12%;
+    --secondary-foreground: 240 100% 99%;
 
-    --primary: 350 81% 37%;
-    --primary-foreground: 0 0% 100%;
+    /* ── Muted ──────────────────────────── */
+    --muted: 240 15% 12%;
+    --muted-foreground: 240 12% 61%; /* #9090A8 */
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 20% 25%;
+    /* ── Accent — Electric Blue ──────────── */
+    --accent: 217 91% 60%;           /* #3B82F6 */
+    --accent-foreground: 240 100% 99%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 50%;
+    /* ── Destructive ────────────────────── */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 240 100% 99%;
 
-    --accent: 350 40% 94%;
-    --accent-foreground: 350 81% 30%;
+    /* ── Chrome ─────────────────────────── */
+    --border: 240 21% 15%;           /* #1E1E2E */
+    --input: 240 21% 15%;
+    --ring: 350 71% 38%;
+    --radius: 0.5rem;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    /* ── Sidebar ────────────────────────── */
+    --sidebar-background: 240 17% 8%;
+    --sidebar-foreground: 240 12% 61%;
+    --sidebar-primary: 350 71% 38%;
+    --sidebar-primary-foreground: 240 100% 99%;
+    --sidebar-accent: 240 15% 12%;
+    --sidebar-accent-foreground: 240 100% 99%;
+    --sidebar-border: 240 21% 15%;
+    --sidebar-ring: 350 71% 38%;
 
-    --border: 220 14% 90%;
-    --input: 220 14% 90%;
-    --ring: 350 81% 37%;
+    /* ── Custom tokens ──────────────────── */
+    --crimson: 350 71% 38%;
+    --crimson-light: 350 71% 46%;
+    --crimson-muted: 350 40% 12%;    /* dark tinted crimson surface */
+    --crimson-dark: 350 71% 28%;
 
-    --radius: 0.625rem;
+    --blue-accent: 217 91% 60%;
+    --blue-accent-muted: 217 50% 14%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 20% 25%;
-    --sidebar-primary: 350 81% 37%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 350 40% 94%;
-    --sidebar-accent-foreground: 350 81% 30%;
-    --sidebar-border: 220 14% 90%;
-    --sidebar-ring: 350 81% 37%;
-
-    /* Typography */
-    --font-display: 'Playfair Display', Georgia, serif;
+    /* ── Typography ─────────────────────── */
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 3px 0 hsl(220 20% 12% / 0.06), 0 1px 2px -1px hsl(220 20% 12% / 0.04);
-    --shadow-md: 0 4px 6px -1px hsl(220 20% 12% / 0.07), 0 2px 4px -2px hsl(220 20% 12% / 0.05);
-    --shadow-lg: 0 10px 15px -3px hsl(220 20% 12% / 0.08), 0 4px 6px -4px hsl(220 20% 12% / 0.05);
-    --shadow-card: 0 1px 3px hsl(220 20% 12% / 0.06), 0 1px 2px hsl(220 20% 12% / 0.04);
-    --shadow-card-hover: 0 8px 25px hsl(220 20% 12% / 0.10), 0 2px 8px hsl(220 20% 12% / 0.06);
+    /* ── Shadows ────────────────────────── */
+    --shadow-card: 0 1px 3px hsl(240 20% 2% / 0.8);
+    --shadow-card-hover: 0 0 0 1px hsl(var(--primary) / 0.45), 0 8px 32px hsl(240 20% 2% / 0.7);
+    --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 4px 20px hsl(var(--primary) / 0.2);
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   body {
     @apply bg-background text-foreground;
@@ -77,22 +83,15 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: var(--font-display);
-  }
-  .font-body {
-    font-family: var(--font-body);
-  }
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-  .shadow-card-hover {
-    box-shadow: var(--shadow-card-hover);
-  }
+  .font-display   { font-family: var(--font-display); }
+  .font-body      { font-family: var(--font-body); }
+  .shadow-card    { box-shadow: var(--shadow-card); }
+  .shadow-card-hover { box-shadow: var(--shadow-card-hover); }
+  .shadow-glow    { box-shadow: var(--shadow-glow); }
 }

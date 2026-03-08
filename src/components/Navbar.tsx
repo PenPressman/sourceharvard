@@ -25,7 +25,7 @@ export default function Navbar() {
       <div className="container mx-auto flex items-center justify-between h-14 px-4">
         <Link to="/" className="flex items-center gap-2.5 group">
           <div className="w-7 h-7 rounded bg-primary flex items-center justify-center flex-shrink-0">
-            <span className="text-primary-foreground font-display font-bold text-sm">H</span>
+            <span className="text-primary-foreground font-display font-bold text-sm">S</span>
           </div>
           <span className="font-display font-semibold text-foreground text-[15px] tracking-tight hidden sm:inline">
             Source @Harvard. 

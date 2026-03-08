@@ -202,11 +202,44 @@ export type Database = {
         }
         Relationships: []
       }
+      saved_startups: {
+        Row: {
+          created_at: string
+          id: string
+          startup_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          startup_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          startup_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_startups_startup_id_fkey"
+            columns: ["startup_id"]
+            isOneToOne: false
+            referencedRelation: "startups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       startups: {
         Row: {
           business_model:
             | Database["public"]["Enums"]["business_model_type"]
             | null
+          contact_email: string | null
+          contact_visible_to_founders: boolean
+          contact_visible_to_public: boolean
+          contact_visible_to_vcs: boolean
           created_at: string
           description: string
           founded_year: number
@@ -236,6 +269,10 @@ export type Database = {
           business_model?:
             | Database["public"]["Enums"]["business_model_type"]
             | null
+          contact_email?: string | null
+          contact_visible_to_founders?: boolean
+          contact_visible_to_public?: boolean
+          contact_visible_to_vcs?: boolean
           created_at?: string
           description: string
           founded_year: number
@@ -265,6 +302,10 @@ export type Database = {
           business_model?:
             | Database["public"]["Enums"]["business_model_type"]
             | null
+          contact_email?: string | null
+          contact_visible_to_founders?: boolean
+          contact_visible_to_public?: boolean
+          contact_visible_to_vcs?: boolean
           created_at?: string
           description?: string
           founded_year?: number

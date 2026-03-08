@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import SubmitStartup from "./pages/SubmitStartup";
 import StartupProfile from "./pages/StartupProfile";
 import Dashboard from "./pages/Dashboard";
+import Favorites from "./pages/Favorites";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/submit" element={<SubmitStartup />} />
             <Route path="/startup/:id" element={<StartupProfile />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
@@ -37,3 +39,5 @@ const App = () => (
 );
 
 export default App;
+
+

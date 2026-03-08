@@ -3,9 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Globe, Users, Calendar, TrendingUp, Briefcase, Clock, Twitter, Linkedin, Lock, ExternalLink, Building2 } from "lucide-react";
+import { ArrowLeft, Globe, Users, Calendar, TrendingUp, Briefcase, Clock, Twitter, Linkedin, Lock, ExternalLink, Building2, Mail } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import EndorseButton from "@/components/EndorseButton";
+import SaveButton from "@/components/SaveButton";
 import type { Database } from "@/integrations/supabase/types";
 
 type Startup = Database["public"]["Tables"]["startups"]["Row"];
@@ -38,6 +39,27 @@ export default function StartupProfilePage() {
 
   const canSeeFunding  = role === "founder" || role === "investor" || role === "admin";
   const canSeePitchDeck = role === "investor" || role === "founder" || role === "admin";
+
+  // Contact visibility helpers
+  const canSeeContactAs = (startup: any) => {
+    if (!startup) return false;
+    if (startup.contact_visible_to_public) return true;
+    if (!user) return false;
+    if (role === "investor" && startup.contact_visible_to_vcs) return true;
+    if (role === "founder" && startup.contact_visible_to_founders) return true;
+    if (role === "admin") return true;
+    return false;
+  };
+
+  const contactHiddenReason = (startup: any) => {
+    if (!startup?.contact_email) return null;
+    if (startup.contact_visible_to_public) return null; // visible
+    if (!startup.contact_visible_to_vcs && !startup.contact_visible_to_founders) return "hidden"; // no one can see
+    const groups = [];
+    if (startup.contact_visible_to_vcs) groups.push("investors");
+    if (startup.contact_visible_to_founders) groups.push("founders");
+    return groups.join(" & ");
+  };
 
   useEffect(() => {
     if (!id) return;
@@ -91,7 +113,7 @@ export default function StartupProfilePage() {
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <h1 className="font-display font-bold text-2xl text-foreground tracking-tight">{startup.name}</h1>
-                <div className="flex gap-2 flex-wrap">
+                <div className="flex gap-2 flex-wrap items-center">
                   {startup.is_hiring && (
                     <span className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-primary text-primary-foreground font-semibold">
                       <Briefcase className="w-3 h-3" />Hiring
@@ -107,6 +129,7 @@ export default function StartupProfilePage() {
                       Co-Founder Needed
                     </span>
                   )}
+                  <SaveButton startupId={startup.id} />
                 </div>
               </div>
               <p className="text-muted-foreground mt-1.5 leading-relaxed">{startup.description}</p>
@@ -181,6 +204,34 @@ export default function StartupProfilePage() {
             )}
 
             <div><p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Harvard Affiliation</p><p className="text-foreground font-semibold text-sm">{startup.harvard_affiliation}</p></div>
+
+            {/* Contact Info */}
+            {s.contact_email && (() => {
+              const canSee = canSeeContactAs(s);
+              const reason = contactHiddenReason(s);
+              return (
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Contact</p>
+                  {canSee ? (
+                    <a href={`mailto:${s.contact_email}`} className="inline-flex items-center gap-1.5 text-primary hover:underline text-sm">
+                      <Mail className="w-3.5 h-3.5" />{s.contact_email}
+                    </a>
+                  ) : reason === "hidden" ? (
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <Lock className="w-3.5 h-3.5" />Contact info is private
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <Lock className="w-3.5 h-3.5" />
+                      {user
+                        ? `Only visible to ${reason}`
+                        : <><span>Sign in as an investor or founder to view contact info</span></>
+                      }
+                    </div>
+                  )}
+                </div>
+              );
+            })()}
           </div>
 
           {/* Social links */}

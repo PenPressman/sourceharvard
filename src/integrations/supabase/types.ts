@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      endorsements: {
+        Row: {
+          created_at: string
+          id: string
+          target_id: string
+          target_type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          target_id: string
+          target_type: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          target_id?: string
+          target_type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       founder_profiles: {
         Row: {
           bio: string | null
@@ -339,6 +363,28 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_all_startup_endorsements: {
+        Args: never
+        Returns: {
+          investor_count: number
+          startup_id: string
+          total: number
+        }[]
+      }
+      get_endorsement_counts: {
+        Args: { p_target_id: string; p_target_type: string }
+        Returns: {
+          investor_count: number
+          total: number
+        }[]
+      }
+      get_trending_startup_ids: {
+        Args: never
+        Returns: {
+          recent_count: number
+          startup_id: string
+        }[]
+      }
       get_user_role: {
         Args: { _user_id: string }
         Returns: Database["public"]["Enums"]["app_role"]

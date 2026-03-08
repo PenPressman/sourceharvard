@@ -3,12 +3,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { LogOut, Plus, BookOpen, LayoutDashboard } from "lucide-react";
 
-const ROLE_BADGE: Record<string, { label: string; cls: string }> = {
-  founder:   { label: "Founder",   cls: "bg-primary/15 text-primary border border-primary/25" },
-  investor:  { label: "Investor",  cls: "bg-blue-accent-muted text-accent border border-accent/20" },
-  student:   { label: "Student",   cls: "bg-secondary text-muted-foreground border border-border" },
+const ROLE_BADGE: Record<string, {label: string;cls: string;}> = {
+  founder: { label: "Founder", cls: "bg-primary/15 text-primary border border-primary/25" },
+  investor: { label: "Investor", cls: "bg-blue-accent-muted text-accent border border-accent/20" },
+  student: { label: "Student", cls: "bg-secondary text-muted-foreground border border-border" },
   applicant: { label: "Applicant", cls: "bg-secondary text-muted-foreground border border-border" },
-  admin:     { label: "Admin",     cls: "bg-destructive/15 text-destructive border border-destructive/25" },
+  admin: { label: "Admin", cls: "bg-destructive/15 text-destructive border border-destructive/25" }
 };
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
             <span className="text-primary-foreground font-display font-bold text-sm">H</span>
           </div>
           <span className="font-display font-semibold text-foreground text-[15px] tracking-tight hidden sm:inline">
-            HarvardFounders
+            Source @Harvard. 
           </span>
         </Link>
 
@@ -40,38 +40,38 @@ export default function Navbar() {
             </Button>
           </Link>
 
-          {user ? (
-            <>
-              {role && (
-                <span className={`hidden sm:inline-block text-xs px-2.5 py-0.5 rounded-full font-medium ${ROLE_BADGE[role]?.cls ?? ROLE_BADGE.applicant.cls}`}>
+          {user ?
+          <>
+              {role &&
+            <span className={`hidden sm:inline-block text-xs px-2.5 py-0.5 rounded-full font-medium ${ROLE_BADGE[role]?.cls ?? ROLE_BADGE.applicant.cls}`}>
                   {ROLE_BADGE[role]?.label}
                 </span>
-              )}
+            }
               <Link to="/dashboard">
                 <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground gap-1.5 text-xs">
                   <LayoutDashboard className="w-3.5 h-3.5" />
                   <span className="hidden sm:inline">Dashboard</span>
                 </Button>
               </Link>
-              {role === "founder" && (
-                <Link to="/submit">
+              {role === "founder" &&
+            <Link to="/submit">
                   <Button size="sm" className="gap-1.5 bg-primary text-primary-foreground hover:bg-crimson-light text-xs ml-1">
                     <Plus className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Add Startup</span>
                   </Button>
                 </Link>
-              )}
+            }
               <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleSignOut}
-                className="text-muted-foreground hover:text-foreground text-xs"
-              >
+              variant="ghost"
+              size="sm"
+              onClick={handleSignOut}
+              className="text-muted-foreground hover:text-foreground text-xs">
+              
                 <LogOut className="w-3.5 h-3.5" />
               </Button>
-            </>
-          ) : (
-            <>
+            </> :
+
+          <>
               <Link to="/login">
                 <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground text-xs">
                   Sign in
@@ -83,9 +83,9 @@ export default function Navbar() {
                 </Button>
               </Link>
             </>
-          )}
+          }
         </nav>
       </div>
-    </header>
-  );
+    </header>);
+
 }

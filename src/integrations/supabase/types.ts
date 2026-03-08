@@ -453,7 +453,7 @@ export type Database = {
         | "Other"
         | "Deep Tech"
       investor_status: "pending" | "approved" | "rejected"
-      stage_type: "Idea" | "Pre-seed" | "Seed" | "Series A+"
+      stage_type: "Idea" | "Pre-seed" | "Seed" | "Series A+" | "Pre-idea"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -596,7 +596,7 @@ export const Constants = {
         "Deep Tech",
       ],
       investor_status: ["pending", "approved", "rejected"],
-      stage_type: ["Idea", "Pre-seed", "Seed", "Series A+"],
+      stage_type: ["Idea", "Pre-seed", "Seed", "Series A+", "Pre-idea"],
     },
   },
 } as const

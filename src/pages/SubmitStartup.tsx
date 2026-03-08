@@ -23,7 +23,7 @@ interface OpenRole {
 }
 
 const INDUSTRIES: IndustryType[] = ["Fintech", "Biotech", "AI/ML", "Consumer", "B2B SaaS", "Hardware", "Social Impact", "Deep Tech" as IndustryType, "Other"];
-const STAGES: StageType[] = ["Idea", "Pre-seed", "Seed", "Series A+"];
+const STAGES: StageType[] = ["Pre-idea" as StageType, "Idea", "Pre-seed", "Seed", "Series A+"];
 const COMPENSATIONS: CompensationType[] = ["Paid", "Equity", "Unpaid"];
 const BUSINESS_MODELS = ["B2B", "B2C", "B2B2C", "Marketplace", "Other"];
 

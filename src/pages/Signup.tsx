@@ -229,7 +229,7 @@ export default function SignupPage() {
             <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-4">
               <span className="text-primary-foreground font-display font-bold text-xl">H</span>
             </div>
-            <h1 className="font-display font-bold text-2xl text-foreground mb-1">Join HarvardFounders</h1>
+            <h1 className="font-display font-bold text-2xl text-foreground mb-1">Join Source.</h1>
             <p className="text-muted-foreground text-sm">
               {step === "account" ? "Create your account" : "Tell us about yourself"}
             </p>

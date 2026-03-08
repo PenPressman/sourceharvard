@@ -43,7 +43,7 @@ export default function LoginPage() {
               <span className="text-primary-foreground font-display font-bold text-xl">H</span>
             </div>
             <h1 className="font-display font-bold text-2xl text-foreground mb-2">Welcome back</h1>
-            <p className="text-muted-foreground text-sm">Sign in to manage your startup profile</p>
+            <p className="text-muted-foreground text-sm">Sign in to manage your profile</p>
           </div>
 
           <form onSubmit={handleLogin} className="bg-card border border-border rounded-xl p-6 shadow-card space-y-4">

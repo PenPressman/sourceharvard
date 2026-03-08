@@ -52,6 +52,10 @@ export default function SubmitStartupPage() {
     looking_for_cofounder: false,
     twitter_url: "",
     linkedin_url: "",
+    contact_email: "",
+    contact_visible_to_vcs: false,
+    contact_visible_to_founders: false,
+    contact_visible_to_public: false,
   });
   const [roles, setRoles] = useState<OpenRole[]>([]);
   const [error, setError] = useState("");

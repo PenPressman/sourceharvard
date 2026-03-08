@@ -51,11 +51,11 @@ export default function Dashboard() {
           role === "student" ? "bg-sky-50 border-sky-200" :
           "bg-muted border-border"
         }`}>
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
             role === "founder" ? "bg-primary text-primary-foreground" :
-            role === "investor" ? "bg-amber-400 text-white" :
-            role === "student" ? "bg-sky-500 text-white" :
-            "bg-muted-foreground text-background"
+            role === "investor" ? "bg-amber-400 text-amber-50" :
+            role === "student" ? "bg-sky-500 text-sky-50" :
+            "bg-muted text-muted-foreground"
           }`}>
             {role === "founder" && <Building2 className="w-5 h-5" />}
             {role === "investor" && <Briefcase className="w-5 h-5" />}

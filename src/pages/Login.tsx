@@ -85,7 +85,7 @@ export default function LoginPage() {
 
             <p className="text-center text-sm text-muted-foreground">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-primary hover:underline font-medium">Join as Founder</Link>
+              <Link to="/signup" className="text-primary hover:underline font-medium">Join now</Link>
             </p>
           </form>
         </div>

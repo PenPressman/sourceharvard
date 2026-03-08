@@ -105,6 +105,10 @@ export default function SubmitStartupPage() {
         looking_for_cofounder: form.looking_for_cofounder,
         twitter_url: form.twitter_url.trim() || null,
         linkedin_url: form.linkedin_url.trim() || null,
+        contact_email: form.contact_email.trim() || null,
+        contact_visible_to_vcs: form.contact_visible_to_vcs,
+        contact_visible_to_founders: form.contact_visible_to_founders,
+        contact_visible_to_public: form.contact_visible_to_public,
       })
       .select().single();
 

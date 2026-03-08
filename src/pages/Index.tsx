@@ -1,2 +1,2 @@
-// Redirect Index to Browse
-export { default } from "./Browse";
+import Browse from "./Browse";
+export default Browse;

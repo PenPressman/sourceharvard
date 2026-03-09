@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Bookmark, BookmarkCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
 interface SaveButtonProps {
@@ -15,7 +14,6 @@ export default function SaveButton({ startupId }: SaveButtonProps) {
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Only show for approved investors
   const isInvestor = role === "investor" || role === "admin";
 
   useEffect(() => {
@@ -53,17 +51,19 @@ export default function SaveButton({ startupId }: SaveButtonProps) {
   };
 
   return (
-    <Button
-      variant="outline"
-      size="sm"
+    <button
       onClick={toggle}
       disabled={loading}
-      className={`gap-1.5 transition-colors ${saved ? "border-accent/40 text-accent bg-accent/5 hover:bg-accent/10" : "text-muted-foreground hover:text-foreground"}`}
+      className={`inline-flex items-center gap-1.5 h-8 px-3 font-body text-[13px] border rounded-sm transition-colors duration-150 ${
+        saved
+          ? "bg-crimson/10 border-crimson/30 text-crimson hover:bg-crimson/15"
+          : "border-[#D6D0C4] text-slate hover:border-ink hover:text-ink"
+      }`}
     >
       {saved
         ? <><BookmarkCheck className="w-3.5 h-3.5" />Saved</>
         : <><Bookmark className="w-3.5 h-3.5" />Save</>
       }
-    </Button>
+    </button>
   );
 }

@@ -2,75 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HarvardFounders — Dark Design System */
+/* Source Harvard — Institutional Editorial Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    /* ── Base ───────────────────────────── */
-    --background: 240 20% 4%;        /* #0A0A0F */
-    --foreground: 240 100% 99%;      /* #F8F8FF */
+    /* ── Palette ─────────────────────────── */
+    --color-ink:        #1A1A18;
+    --color-parchment:  #F5F1E8;
+    --color-slate:      #4A4E5A;
+    --color-rule:       #D6D0C4;
+    --color-crimson:    #A51C30;
+    --color-crimson-dim:#C4314A;
+    --color-surface:    #FFFFFF;
+    --color-muted-bg:   #EDE9DE;
 
-    /* ── Surfaces ───────────────────────── */
-    --card: 240 17% 8%;              /* #111118 */
-    --card-foreground: 240 100% 99%;
-    --popover: 240 15% 10%;
-    --popover-foreground: 240 100% 99%;
+    /* ── Semantic tokens (Tailwind-compatible HSL format) ─ */
+    --background:       42 28% 94%;       /* parchment */
+    --foreground:       60 3% 10%;        /* ink */
 
-    /* ── Primary — Harvard Crimson ───────── */
-    --primary: 350 71% 38%;          /* #A51C30 */
-    --primary-foreground: 240 100% 99%;
+    --card:             0 0% 100%;        /* surface white */
+    --card-foreground:  60 3% 10%;
 
-    /* ── Secondary surface ───────────────── */
-    --secondary: 240 15% 12%;
-    --secondary-foreground: 240 100% 99%;
+    --popover:          0 0% 100%;
+    --popover-foreground: 60 3% 10%;
 
-    /* ── Muted ──────────────────────────── */
-    --muted: 240 15% 12%;
-    --muted-foreground: 240 12% 61%; /* #9090A8 */
+    --primary:          350 71% 38%;      /* crimson */
+    --primary-foreground: 42 28% 94%;
 
-    /* ── Accent — Electric Blue ──────────── */
-    --accent: 217 91% 60%;           /* #3B82F6 */
-    --accent-foreground: 240 100% 99%;
+    --secondary:        38 24% 88%;       /* muted-bg */
+    --secondary-foreground: 60 3% 10%;
 
-    /* ── Destructive ────────────────────── */
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 240 100% 99%;
+    --muted:            38 24% 88%;
+    --muted-foreground: 226 9% 32%;       /* slate */
 
-    /* ── Chrome ─────────────────────────── */
-    --border: 240 21% 15%;           /* #1E1E2E */
-    --input: 240 21% 15%;
-    --ring: 350 71% 38%;
-    --radius: 0.5rem;
+    --accent:           350 71% 38%;
+    --accent-foreground: 42 28% 94%;
+
+    --destructive:      0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:           38 18% 80%;       /* rule */
+    --input:            38 18% 80%;
+    --ring:             350 71% 38%;
+    --radius:           0.25rem;          /* 4px — editorial, not bubbly */
 
     /* ── Sidebar ────────────────────────── */
-    --sidebar-background: 240 17% 8%;
-    --sidebar-foreground: 240 12% 61%;
+    --sidebar-background: 42 28% 94%;
+    --sidebar-foreground: 226 9% 32%;
     --sidebar-primary: 350 71% 38%;
-    --sidebar-primary-foreground: 240 100% 99%;
-    --sidebar-accent: 240 15% 12%;
-    --sidebar-accent-foreground: 240 100% 99%;
-    --sidebar-border: 240 21% 15%;
+    --sidebar-primary-foreground: 42 28% 94%;
+    --sidebar-accent: 38 24% 88%;
+    --sidebar-accent-foreground: 60 3% 10%;
+    --sidebar-border: 38 18% 80%;
     --sidebar-ring: 350 71% 38%;
 
-    /* ── Custom tokens ──────────────────── */
-    --crimson: 350 71% 38%;
-    --crimson-light: 350 71% 46%;
-    --crimson-muted: 350 40% 12%;    /* dark tinted crimson surface */
-    --crimson-dark: 350 71% 28%;
-
-    --blue-accent: 217 91% 60%;
-    --blue-accent-muted: 217 50% 14%;
-
-    /* ── Typography ─────────────────────── */
-    --font-display: 'Space Grotesk', system-ui, sans-serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-
     /* ── Shadows ────────────────────────── */
-    --shadow-card: 0 1px 3px hsl(240 20% 2% / 0.8);
-    --shadow-card-hover: 0 0 0 1px hsl(var(--primary) / 0.45), 0 8px 32px hsl(240 20% 2% / 0.7);
-    --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 4px 20px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-card-hover: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-glow: 0 0 0 3px rgba(165,28,48,0.12);
   }
 }
 
@@ -79,19 +70,41 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
-    font-family: var(--font-display);
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
 
 @layer utilities {
-  .font-display   { font-family: var(--font-display); }
-  .font-body      { font-family: var(--font-body); }
+  .font-display   { font-family: 'Playfair Display', Georgia, serif; }
+  .font-body      { font-family: 'DM Sans', system-ui, sans-serif; }
+  .font-mono      { font-family: 'DM Mono', 'Courier New', monospace; }
   .shadow-card    { box-shadow: var(--shadow-card); }
   .shadow-card-hover { box-shadow: var(--shadow-card-hover); }
   .shadow-glow    { box-shadow: var(--shadow-glow); }
+
+  /* Modular type scale (1.25 ratio) */
+  .text-scale-xs   { font-size: 12px; }
+  .text-scale-sm   { font-size: 14px; }
+  .text-scale-base { font-size: 16px; }
+  .text-scale-md   { font-size: 20px; }
+  .text-scale-lg   { font-size: 25px; }
+  .text-scale-xl   { font-size: 31px; }
+  .text-scale-2xl  { font-size: 39px; }
+  .text-scale-3xl  { font-size: 49px; }
+}
+
+/* ── Subtle content animations ────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.2s ease-out forwards;
 }

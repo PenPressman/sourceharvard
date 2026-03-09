@@ -12,8 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Space Grotesk", "system-ui", "sans-serif"],
-        body:    ["Inter",         "system-ui", "sans-serif"],
+        display: ["Playfair Display", "Georgia", "serif"],
+        body:    ["DM Sans",          "system-ui", "sans-serif"],
+        mono:    ["DM Mono",          "Courier New", "monospace"],
       },
       colors: {
         border:     "hsl(var(--border))",
@@ -49,16 +50,17 @@ export default {
           DEFAULT:    "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Direct palette tokens for use in components
+        ink:       { DEFAULT: "#1A1A18" },
+        parchment: { DEFAULT: "#F5F1E8" },
+        slate:     { DEFAULT: "#4A4E5A" },
+        rule:      { DEFAULT: "#D6D0C4" },
         crimson: {
-          DEFAULT: "hsl(var(--crimson))",
-          light:   "hsl(var(--crimson-light))",
-          muted:   "hsl(var(--crimson-muted))",
-          dark:    "hsl(var(--crimson-dark))",
+          DEFAULT: "#A51C30",
+          dim:     "#C4314A",
         },
-        blue: {
-          accent:      "hsl(var(--blue-accent))",
-          "accent-muted": "hsl(var(--blue-accent-muted))",
-        },
+        surface:   { DEFAULT: "#FFFFFF" },
+        "muted-bg":{ DEFAULT: "#EDE9DE" },
         sidebar: {
           DEFAULT:              "hsl(var(--sidebar-background))",
           foreground:           "hsl(var(--sidebar-foreground))",
@@ -72,8 +74,21 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "var(--radius)",
+        sm: "2px",
+      },
+      spacing: {
+        // Base-8 scale
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "6": "24px",
+        "8": "32px",
+        "12": "48px",
+        "16": "64px",
+        "24": "96px",
+        "32": "128px",
       },
       boxShadow: {
         card:       "var(--shadow-card)",
@@ -90,14 +105,14 @@ export default {
           to:   { height: "0" },
         },
         "fade-in": {
-          from: { opacity: "0", transform: "translateY(8px)" },
+          from: { opacity: "0", transform: "translateY(12px)" },
           to:   { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up":   "accordion-up 0.2s ease-out",
-        "fade-in":        "fade-in 0.3s ease-out",
+        "fade-in":        "fade-in 0.2s ease-out",
       },
     },
   },

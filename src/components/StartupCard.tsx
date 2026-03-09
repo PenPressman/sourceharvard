@@ -15,76 +15,63 @@ interface StartupCardProps {
   score?: EndorsementScore;
 }
 
-const industryColors: Record<string, string> = {
-  "Fintech":       "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-  "Biotech":       "bg-blue-500/10 text-blue-400 border-blue-500/20",
-  "AI/ML":         "bg-violet-500/10 text-violet-400 border-violet-500/20",
-  "Consumer":      "bg-orange-500/10 text-orange-400 border-orange-500/20",
-  "B2B SaaS":      "bg-sky-500/10 text-sky-400 border-sky-500/20",
-  "Hardware":      "bg-stone-500/10 text-stone-400 border-stone-500/20",
-  "Social Impact": "bg-teal-500/10 text-teal-400 border-teal-500/20",
-  "Deep Tech":     "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
-  "Other":         "bg-muted text-muted-foreground border-border",
-};
+// Stage badge — use DM Mono, muted-bg
+const stageBadge = (stage: string) =>
+  `inline-block font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#EDE9DE] text-[#4A4E5A] border border-[#D6D0C4] rounded-sm`;
 
-const stageColors: Record<string, string> = {
-  "Pre-idea":  "bg-muted text-muted-foreground border-border",
-  "Idea":      "bg-muted text-muted-foreground border-border",
-  "Pre-seed":  "bg-amber-500/10 text-amber-400 border-amber-500/20",
-  "Seed":      "bg-lime-500/10 text-lime-400 border-lime-500/20",
-  "Series A+": "bg-primary/10 text-primary border-primary/20",
+// Industry badge
+const industryBadge = (industry: string) =>
+  `inline-block font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 rounded-sm border font-normal`;
+
+const industryColors: Record<string, string> = {
+  "Fintech":       "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "Biotech":       "bg-sky-50 text-sky-700 border-sky-200",
+  "AI/ML":         "bg-violet-50 text-violet-700 border-violet-200",
+  "Consumer":      "bg-orange-50 text-orange-700 border-orange-200",
+  "B2B SaaS":      "bg-cyan-50 text-cyan-700 border-cyan-200",
+  "Hardware":      "bg-stone-50 text-stone-600 border-stone-200",
+  "Social Impact": "bg-teal-50 text-teal-700 border-teal-200",
+  "Deep Tech":     "bg-indigo-50 text-indigo-700 border-indigo-200",
+  "Other":         "bg-[#EDE9DE] text-[#4A4E5A] border-[#D6D0C4]",
 };
 
 export default function StartupCard({ startup, score }: StartupCardProps) {
   return (
     <Link to={`/startup/${startup.id}`} className="block group">
-      <div className="bg-card border border-border rounded-lg p-5 shadow-card transition-all duration-200 group-hover:shadow-card-hover group-hover:scale-[1.01] group-hover:border-primary/40 h-full flex flex-col">
+      <div className="bg-white border border-[#D6D0C4] rounded-sm p-6 shadow-card transition-all duration-150 group-hover:border-[#1A1A18] flex flex-col h-full">
 
-        {/* Header row */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
-            <span className="font-display font-bold text-primary text-base">
-              {startup.name.charAt(0).toUpperCase()}
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-1.5 justify-end">
+        {/* Source type badge row */}
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <span className={`${industryBadge(startup.industry)} ${industryColors[startup.industry] ?? industryColors["Other"]}`}>
+            {startup.industry}
+          </span>
+          <div className="flex items-center gap-1.5">
             {startup.is_hiring && (
-              <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-primary text-primary-foreground font-medium">
-                <Briefcase className="w-3 h-3" />
-                Hiring
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-crimson text-white rounded-sm">
+                <Briefcase className="w-2.5 h-2.5" />Hiring
               </span>
             )}
             {startup.open_to_vc && (
-              <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-blue-accent-muted text-accent border border-accent/20 font-medium">
-                <TrendingUp className="w-3 h-3" />
-                VC
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#EDE9DE] text-[#4A4E5A] border border-[#D6D0C4] rounded-sm">
+                <TrendingUp className="w-2.5 h-2.5" />VC
               </span>
             )}
           </div>
         </div>
 
-        {/* Name */}
-        <h3 className="font-display font-semibold text-foreground text-base mb-1.5 group-hover:text-primary transition-colors line-clamp-1">
+        {/* Title — Playfair Display */}
+        <h3 className="font-display font-bold text-[20px] text-[#1A1A18] mb-2 leading-[1.3] group-hover:text-crimson transition-colors duration-150 line-clamp-1">
           {startup.name}
         </h3>
 
-        {/* Description */}
-        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 flex-1 mb-4">
+        {/* Description — DM Sans */}
+        <p className="font-body text-[14px] text-[#4A4E5A] leading-relaxed line-clamp-2 flex-1 mb-4">
           {startup.description}
         </p>
 
-        {/* Tags + scores */}
-        <div className="flex items-center justify-between gap-2 flex-wrap">
-          <div className="flex flex-wrap gap-1.5">
-            <span className={`inline-block text-xs px-2.5 py-0.5 rounded-full border font-medium ${industryColors[startup.industry] ?? industryColors["Other"]}`}>
-              {startup.industry}
-            </span>
-            <span className={`inline-block text-xs px-2.5 py-0.5 rounded-full border font-medium ${stageColors[startup.stage] ?? stageColors["Idea"]}`}>
-              {startup.stage}
-            </span>
-          </div>
-
-          {/* Endorsement score badges */}
+        {/* Footer row */}
+        <div className="flex items-center justify-between gap-2 pt-4 border-t border-[#D6D0C4]">
+          <span className={stageBadge(startup.stage)}>{startup.stage}</span>
           {score && <ScoreBadges total={score.total} investorCount={score.investorCount} />}
         </div>
       </div>

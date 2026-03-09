@@ -155,20 +155,29 @@ export default function BrowsePage() {
         </div>
       </section>
 
-      {/* Ticker bar — mission-control feel */}
+  {/* Ticker bar */}
       <div className="ticker-border bg-[#0D0D0C] py-2 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex items-center gap-6 overflow-x-auto scrollbar-none">
-            {["AI/ML", "Fintech", "Biotech", "B2B SaaS", "Deep Tech", "Consumer", "Hardware", "Social Impact"].map((ind) => {
-              const count = startups.filter(s => s.industry === ind).length;
+            {[
+              { name: "AI/ML",         color: "text-violet-400",       dot: "bg-violet-400" },
+              { name: "Fintech",        color: "text-[#22C55E]",        dot: "bg-[#22C55E]" },
+              { name: "Biotech",        color: "text-sky-400",          dot: "bg-sky-400" },
+              { name: "B2B SaaS",       color: "text-[#FF4D8D]",        dot: "bg-[#FF4D8D]" },
+              { name: "Deep Tech",      color: "text-indigo-400",       dot: "bg-indigo-400" },
+              { name: "Consumer",       color: "text-[#FF6B35]",        dot: "bg-[#FF6B35]" },
+              { name: "Hardware",       color: "text-[#A8A9A0]",        dot: "bg-[#A8A9A0]" },
+              { name: "Social Impact",  color: "text-teal-400",         dot: "bg-teal-400" },
+            ].map(({ name, color, dot }) => {
+              const count = startups.filter(s => s.industry === name).length;
               return count > 0 ? (
                 <button
-                  key={ind}
-                  onClick={() => setFilterIndustry(ind as IndustryType)}
-                  className={`flex-shrink-0 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-150 ${filterIndustry === ind ? "text-crimson" : "text-[#5A5B53] hover:text-[#8A8B80]"}`}
+                  key={name}
+                  onClick={() => setFilterIndustry(name as IndustryType)}
+                  className={`flex-shrink-0 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-150 ${filterIndustry === name ? color : "text-[#6A6B63] hover:text-[#A8A9A0]"}`}
                 >
-                  <span className={`w-1 h-1 rounded-full ${filterIndustry === ind ? "bg-crimson" : "bg-[#2A2A28]"}`} />
-                  {ind} <span className="text-[#2A2A28]">({count})</span>
+                  <span className={`w-1.5 h-1.5 rounded-full ${filterIndustry === name ? dot : "bg-[#2A2A28]"}`} />
+                  {name} <span className="text-[#2A2A28] ml-1">({count})</span>
                 </button>
               ) : null;
             })}

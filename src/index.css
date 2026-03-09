@@ -9,16 +9,20 @@
 @layer base {
   :root {
     /* ── Dark Palette ─────────────────────────── */
-    --color-void:       #0A0A09;   /* deepest background */
-    --color-ink:        #0D0D0C;   /* primary background */
-    --color-surface:    #141413;   /* card surface */
-    --color-surface-2:  #1C1C1A;   /* elevated surface */
-    --color-surface-3:  #242422;   /* subtle element bg */
-    --color-rule:       #2A2A28;   /* dividers, borders */
-    --color-rule-dim:   #1E1E1C;   /* subtle borders */
-    --color-parchment:  #F5F1E8;   /* primary text */
-    --color-slate:      #8A8B80;   /* secondary text */
-    --color-slate-dim:  #5A5B53;   /* muted text */
+    --color-void:       #0A0A09;
+    --color-ink:        #0D0D0C;
+    --color-surface:    #141413;
+    --color-surface-2:  #1C1C1A;
+    --color-surface-3:  #242422;
+    --color-rule:       #2A2A28;
+    --color-rule-dim:   #1E1E1C;
+    --color-parchment:  #FFFFFF;   /* pure white primary text */
+    --color-slate:      #A8A9A0;   /* lighter secondary text */
+    --color-slate-dim:  #6A6B63;   /* muted text */
+    /* ── Accent palette ─── */
+    --color-pink:       #FF4D8D;
+    --color-orange:     #FF6B35;
+    --color-green:      #22C55E;
     --color-crimson:    #A51C30;   /* accent */
     --color-crimson-dim:#C4314A;   /* hover accent */
     --color-crimson-glow: rgba(165,28,48,0.15);

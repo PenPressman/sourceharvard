@@ -90,8 +90,10 @@ export default function BrowsePage() {
       <section className="relative border-b border-[#2A2A28] overflow-hidden">
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-overlay pointer-events-none" />
-        {/* Radial glow from bottom-left */}
+        {/* Radial glows — pink, orange, crimson */}
         <div className="absolute bottom-0 left-0 w-[600px] h-[400px] bg-crimson/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[400px] h-[300px] bg-[#FF4D8D]/4 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/3 w-[300px] h-[200px] bg-[#FF6B35]/4 rounded-full blur-[90px] pointer-events-none" />
         {/* Crimson vertical accent bar */}
         <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-crimson/40 to-transparent" />
 

@@ -56,12 +56,12 @@ export default function StartupCard({ startup, score }: StartupCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-[20px] text-[#F5F1E8] mb-2 leading-[1.3] group-hover:text-crimson transition-colors duration-150 line-clamp-1">
+        <h3 className="font-body font-bold text-[20px] text-white mb-2 leading-[1.3] group-hover:text-crimson transition-colors duration-150 line-clamp-1">
           {startup.name}
         </h3>
 
         {/* Description */}
-        <p className="font-body text-[14px] text-[#8A8B80] leading-relaxed line-clamp-2 flex-1 mb-4">
+        <p className="font-body text-[14px] text-[#A8A9A0] leading-relaxed line-clamp-2 flex-1 mb-4">
           {startup.description}
         </p>
 

@@ -110,7 +110,7 @@ export default function BrowsePage() {
 
         <div className="container mx-auto px-6 py-24 relative">
           <div className="max-w-3xl">
-            {/* System label */}
+        {/* System label */}
             <div className="flex items-center gap-3 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
               <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">
@@ -119,18 +119,18 @@ export default function BrowsePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-bold text-[49px] text-[#F5F1E8] leading-[1.05] mb-5 max-w-[640px]">
+            <h1 className="font-body font-bold text-[49px] text-white leading-[1.05] mb-5 max-w-[640px]">
               Discover Harvard<br />
-              <span className="text-crimson italic">Student Startups</span>
+              <span className="text-crimson">Student Startups</span>
             </h1>
 
             {/* Subhead */}
-            <p className="font-body text-[18px] text-[#8A8B80] leading-relaxed max-w-[520px] mb-10">
+            <p className="font-body text-[18px] text-[#A8A9A0] leading-relaxed max-w-[520px] mb-10">
               Browse ventures built by Harvard founders. Connect, invest, and build the next generation of companies.
             </p>
 
             {/* CTAs */}
-            <div className="flex items-center gap-4 mb-12">
+            <div className="flex items-center gap-4">
               {!user ? (
                 <>
                   <Link to="/signup">
@@ -138,7 +138,7 @@ export default function BrowsePage() {
                       Join the Network
                     </button>
                   </Link>
-                  <Link to="/login" className="font-body text-[14px] text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150 underline underline-offset-4">
+                  <Link to="/login" className="font-body text-[14px] text-[#A8A9A0] hover:text-white transition-colors duration-150 underline underline-offset-4">
                     Sign in
                   </Link>
                 </>
@@ -150,17 +150,6 @@ export default function BrowsePage() {
                   </button>
                 </Link>
               )}
-            </div>
-
-            {/* Stats row — data-rich, mission-control */}
-            <div className="flex items-center gap-10 pt-8 border-t border-[#2A2A28]">
-              <StatBlock value={loading ? "—" : String(startups.length)} label="Startups" />
-              <div className="w-px h-10 bg-[#2A2A28]" />
-              <StatBlock value={loading ? "—" : String(hiringCount)} label="Hiring" delay={80} />
-              <div className="w-px h-10 bg-[#2A2A28]" />
-              <StatBlock value={loading ? "—" : String(vcCount)} label="Seeking VC" delay={160} />
-              <div className="w-px h-10 bg-[#2A2A28]" />
-              <StatBlock value="40+" label="Institutions" delay={240} />
             </div>
           </div>
         </div>

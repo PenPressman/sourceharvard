@@ -33,27 +33,8 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Center nav links */}
-        <nav className="hidden md:flex items-center gap-1">
-          <Link to="/" className="px-3 py-1.5 text-[14px] font-body font-medium text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150">
-            Browse
-          </Link>
-          {user && (
-            <Link to="/dashboard" className="px-3 py-1.5 text-[14px] font-body font-medium text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150">
-              Dashboard
-            </Link>
-          )}
-          {role === "investor" && (
-            <Link to="/favorites" className="px-3 py-1.5 text-[14px] font-body font-medium text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150">
-              Saved
-            </Link>
-          )}
-          {role === "admin" && (
-            <Link to="/admin" className="px-3 py-1.5 text-[14px] font-body font-medium text-crimson hover:text-crimson-dim transition-colors duration-150">
-              Admin
-            </Link>
-          )}
-        </nav>
+        {/* Center — empty, nav moved to right */}
+        <div />
 
         {/* Right side */}
         <div className="flex items-center gap-2">
@@ -64,11 +45,28 @@ export default function Navbar() {
                   {ROLE_BADGE[role]?.label}
                 </span>
               )}
-              <Link to="/dashboard" className="md:hidden p-2 text-[#8A8B80] hover:text-[#F5F1E8] transition-colors">
+              <Link to="/" className="hidden md:block px-3 py-1.5 text-[14px] font-body font-medium text-[#A8A9A0] hover:text-white transition-colors duration-150">
+                Browse
+              </Link>
+              <Link to="/dashboard" className="hidden md:block px-3 py-1.5 text-[14px] font-body font-medium text-[#A8A9A0] hover:text-white transition-colors duration-150">
+                Dashboard
+              </Link>
+              {role === "investor" && (
+                <Link to="/favorites" className="hidden md:block px-3 py-1.5 text-[14px] font-body font-medium text-[#A8A9A0] hover:text-white transition-colors duration-150">
+                  Saved
+                </Link>
+              )}
+              {role === "admin" && (
+                <Link to="/admin" className="hidden md:block px-3 py-1.5 text-[14px] font-body font-medium text-crimson hover:text-crimson-dim transition-colors duration-150">
+                  Admin
+                </Link>
+              )}
+              {/* Mobile icons */}
+              <Link to="/dashboard" className="md:hidden p-2 text-[#A8A9A0] hover:text-white transition-colors">
                 <LayoutDashboard className="w-4 h-4" />
               </Link>
               {role === "investor" && (
-                <Link to="/favorites" className="md:hidden p-2 text-[#8A8B80] hover:text-[#F5F1E8] transition-colors">
+                <Link to="/favorites" className="md:hidden p-2 text-[#A8A9A0] hover:text-white transition-colors">
                   <Bookmark className="w-4 h-4" />
                 </Link>
               )}
@@ -87,7 +85,7 @@ export default function Navbar() {
               )}
               <button
                 onClick={handleSignOut}
-                className="p-2 text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150"
+                className="p-2 text-[#A8A9A0] hover:text-white transition-colors duration-150"
                 title="Sign out"
               >
                 <LogOut className="w-4 h-4" />
@@ -95,7 +93,10 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Link to="/login" className="px-3 py-1.5 text-[14px] font-body font-medium text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150">
+              <Link to="/" className="hidden md:block px-3 py-1.5 text-[14px] font-body font-medium text-[#A8A9A0] hover:text-white transition-colors duration-150">
+                Browse
+              </Link>
+              <Link to="/login" className="px-3 py-1.5 text-[14px] font-body font-medium text-[#A8A9A0] hover:text-white transition-colors duration-150">
                 Sign in
               </Link>
               <Link to="/signup">

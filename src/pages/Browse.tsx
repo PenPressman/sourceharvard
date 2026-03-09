@@ -13,8 +13,8 @@ type StageType = Database["public"]["Enums"]["stage_type"];
 
 interface EndorsementScore { total: number; investorCount: number; }
 
-const INDUSTRIES: IndustryType[] = ["Fintech", "Biotech", "AI/ML", "Consumer", "B2B SaaS", "Hardware", "Social Impact", "Deep Tech" as IndustryType, "Other"];
-const STAGES: StageType[] = ["Idea", "Pre-seed", "Seed", "Series A+"];
+const INDUSTRIES: IndustryType[] = ["AI/ML", "Fintech", "Biotech", "B2B SaaS", "Consumer", "Deep Tech", "HealthTech", "EdTech", "Climate Tech", "Web3/Crypto", "Robotics", "Media/Content", "Legal Tech", "Real Estate", "GovTech", "FoodTech", "Hardware", "Social Impact", "Other"] as IndustryType[];
+const STAGES: StageType[] = ["Pre-idea", "Idea", "Pre-seed", "Seed", "Series A+", "Series B+", "Revenue Stage", "Bootstrapped"] as StageType[];
 
 const SORT_OPTIONS = [
   { value: "recent",            label: "Most Recent",       icon: Clock },

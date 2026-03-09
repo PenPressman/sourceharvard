@@ -110,7 +110,7 @@ export default function BrowsePage() {
             {/* Headline */}
             <h1 className="font-body font-bold text-[49px] text-white leading-[1.05] mb-5 max-w-[640px]">
               Discover Harvard<br />
-              <span className="text-crimson">Student Startups</span>
+              <span className="bg-gradient-to-r from-[#FF4D8D] via-[#FF6B35] to-[#22C55E] bg-clip-text text-transparent">Student Startups</span>
             </h1>
 
             {/* Subhead */}

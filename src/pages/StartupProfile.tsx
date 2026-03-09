@@ -12,8 +12,8 @@ type Startup = Database["public"]["Tables"]["startups"]["Row"];
 type OpenRole = Database["public"]["Tables"]["open_roles"]["Row"];
 
 const compensationColors: Record<string, string> = {
-  "Paid":   "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
-  "Equity": "bg-violet-950/60 text-violet-400 border-violet-800/60",
+  "Paid":   "bg-[#22C55E]/10 text-[#22C55E] border-[#22C55E]/30",
+  "Equity": "bg-[#FF4D8D]/10 text-[#FF4D8D] border-[#FF4D8D]/30",
   "Unpaid": "bg-[#1C1C1A] text-[#C8C9C0] border-[#2A2A28]",
 };
 

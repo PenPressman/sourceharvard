@@ -17,8 +17,8 @@
     --color-rule:       #2A2A28;
     --color-rule-dim:   #1E1E1C;
     --color-parchment:  #FFFFFF;   /* pure white primary text */
-    --color-slate:      #A8A9A0;   /* lighter secondary text */
-    --color-slate-dim:  #6A6B63;   /* muted text */
+    --color-slate:      #C8C9C0;   /* secondary text — readable on dark */
+    --color-slate-dim:  #8A8B80;   /* muted text */
     /* ── Accent palette ─── */
     --color-pink:       #FF4D8D;
     --color-orange:     #FF6B35;
@@ -44,7 +44,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted:            60 3% 13%;
-    --muted-foreground: 55 3% 65%;       /* lighter slate */
+    --muted-foreground: 55 5% 75%;       /* lighter slate */
 
     --accent:           350 71% 38%;
     --accent-foreground: 42 28% 94%;

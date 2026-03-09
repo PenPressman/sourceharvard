@@ -4,9 +4,9 @@ import { LogOut, Plus, LayoutDashboard, Bookmark, ShieldAlert } from "lucide-rea
 
 const ROLE_BADGE: Record<string, { label: string; cls: string }> = {
   founder:  { label: "Founder",  cls: "bg-crimson/15 text-crimson border border-crimson/30" },
-  investor: { label: "Investor", cls: "bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28]" },
-  student:  { label: "Student",  cls: "bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28]" },
-  applicant:{ label: "Applicant",cls: "bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28]" },
+  investor: { label: "Investor", cls: "bg-[#1C1C1A] text-[#C8C9C0] border border-[#2A2A28]" },
+  student:  { label: "Student",  cls: "bg-[#1C1C1A] text-[#C8C9C0] border border-[#2A2A28]" },
+  applicant:{ label: "Applicant",cls: "bg-[#1C1C1A] text-[#C8C9C0] border border-[#2A2A28]" },
   admin:    { label: "Admin",    cls: "bg-crimson/20 text-crimson border border-crimson/30" },
 };
 

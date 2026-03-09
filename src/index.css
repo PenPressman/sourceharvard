@@ -28,23 +28,23 @@
     --color-crimson-glow: rgba(165,28,48,0.15);
 
     /* ── Semantic tokens (Tailwind-compatible HSL format) ─ */
-    --background:       60 4% 5%;          /* void */
-    --foreground:       42 28% 94%;        /* parchment */
+    --background:       60 4% 5%;
+    --foreground:       0 0% 100%;       /* pure white */
 
-    --card:             60 3% 8%;          /* surface */
-    --card-foreground:  42 28% 94%;
+    --card:             60 3% 8%;
+    --card-foreground:  0 0% 100%;
 
     --popover:          60 3% 10%;
-    --popover-foreground: 42 28% 94%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary:          350 71% 38%;       /* crimson */
-    --primary-foreground: 42 28% 94%;
+    --primary:          350 71% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary:        60 3% 13%;         /* surface-2 */
-    --secondary-foreground: 42 28% 94%;
+    --secondary:        60 3% 13%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted:            60 3% 13%;
-    --muted-foreground: 55 5% 55%;         /* slate */
+    --muted-foreground: 55 3% 65%;       /* lighter slate */
 
     --accent:           350 71% 38%;
     --accent-foreground: 42 28% 94%;

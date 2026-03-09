@@ -25,16 +25,16 @@ type UserRow = { user_id: string; full_name: string | null; email: string | null
 const APP_ROLES = ["founder", "investor", "student", "applicant", "admin"] as const;
 
 const statusBadge: Record<string, string> = {
-  pending:  "bg-amber-50 text-amber-700 border-amber-200",
-  approved: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  rejected: "bg-red-50 text-red-600 border-red-200",
+  pending:  "bg-amber-950/60 text-amber-400 border-amber-800/60",
+  approved: "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+  rejected: "bg-red-950/60 text-red-400 border-red-800/60",
 };
 const roleBadge: Record<string, string> = {
-  founder:  "bg-crimson/10 text-crimson border-crimson/20",
-  investor: "bg-[#EDE9DE] text-slate border-[#D6D0C4]",
-  student:  "bg-[#EDE9DE] text-slate border-[#D6D0C4]",
-  applicant:"bg-[#EDE9DE] text-slate border-[#D6D0C4]",
-  admin:    "bg-red-50 text-red-600 border-red-200",
+  founder:  "bg-crimson/15 text-crimson border-crimson/30",
+  investor: "bg-[#1C1C1A] text-[#8A8B80] border-[#2A2A28]",
+  student:  "bg-[#1C1C1A] text-[#8A8B80] border-[#2A2A28]",
+  applicant:"bg-[#1C1C1A] text-[#8A8B80] border-[#2A2A28]",
+  admin:    "bg-crimson/20 text-crimson border-crimson/30",
 };
 
 function InvestorsTab() {
@@ -69,46 +69,46 @@ function InvestorsTab() {
     setActionLoading(null);
   };
 
-  if (loading) return <div className="space-y-2 mt-4">{Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}</div>;
-  if (!investors.length) return <p className="text-center font-body text-[14px] text-slate py-12">No investor applications yet.</p>;
+  if (loading) return <div className="space-y-2 mt-4">{Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-12 w-full bg-[#1C1C1A]" />)}</div>;
+  if (!investors.length) return <p className="text-center font-body text-[14px] text-[#5A5B53] py-12">No investor applications yet.</p>;
 
   return (
     <Table>
       <TableHeader>
-        <TableRow>
-          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em]">Name</TableHead>
-          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em]">Firm / Title</TableHead>
-          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em]">Email</TableHead>
-          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em]">Status</TableHead>
-          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em]">Applied</TableHead>
-          <TableHead className="text-right font-mono text-[11px] uppercase tracking-[0.06em]">Actions</TableHead>
+        <TableRow className="border-[#2A2A28] hover:bg-transparent">
+          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]">Name</TableHead>
+          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]">Firm / Title</TableHead>
+          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]">Email</TableHead>
+          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]">Status</TableHead>
+          <TableHead className="font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]">Applied</TableHead>
+          <TableHead className="text-right font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]">Actions</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {investors.map((inv) => (
-          <TableRow key={inv.id}>
-            <TableCell className="font-body font-medium text-ink">{inv.profile_name ?? "—"}</TableCell>
+          <TableRow key={inv.id} className="border-[#2A2A28] hover:bg-[#1C1C1A]/50">
+            <TableCell className="font-body font-medium text-[#F5F1E8]">{inv.profile_name ?? "—"}</TableCell>
             <TableCell className="font-body text-[14px]">
-              <span className="font-medium text-ink">{inv.firm_name}</span>
-              <span className="text-slate text-[13px] ml-1">· {inv.title}</span>
+              <span className="font-medium text-[#F5F1E8]">{inv.firm_name}</span>
+              <span className="text-[#5A5B53] text-[13px] ml-1">· {inv.title}</span>
             </TableCell>
-            <TableCell className="font-body text-[13px] text-slate">{inv.profile_email ?? "—"}</TableCell>
+            <TableCell className="font-body text-[13px] text-[#8A8B80]">{inv.profile_email ?? "—"}</TableCell>
             <TableCell>
               <span className={`font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 rounded-sm border ${statusBadge[inv.status]}`}>
                 {inv.status}
               </span>
             </TableCell>
-            <TableCell className="font-body text-[13px] text-slate">{new Date(inv.created_at).toLocaleDateString()}</TableCell>
+            <TableCell className="font-body text-[13px] text-[#8A8B80]">{new Date(inv.created_at).toLocaleDateString()}</TableCell>
             <TableCell className="text-right space-x-1">
               <button
-                className="inline-flex items-center gap-1 font-body text-[13px] text-emerald-700 hover:underline disabled:opacity-40"
+                className="inline-flex items-center gap-1 font-body text-[13px] text-emerald-400 hover:underline disabled:opacity-40"
                 disabled={inv.status === "approved" || actionLoading !== null}
                 onClick={() => updateStatus(inv.id, "approved")}
               >
                 <CheckCircle className="w-3.5 h-3.5" />Approve
               </button>
               <button
-                className="inline-flex items-center gap-1 font-body text-[13px] text-red-600 hover:underline disabled:opacity-40 ml-3"
+                className="inline-flex items-center gap-1 font-body text-[13px] text-red-400 hover:underline disabled:opacity-40 ml-3"
                 disabled={inv.status === "rejected" || actionLoading !== null}
                 onClick={() => updateStatus(inv.id, "rejected")}
               >
@@ -150,29 +150,29 @@ function StartupsTab() {
     setDeletingId(null);
   };
 
-  if (loading) return <div className="space-y-2 mt-4">{Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}</div>;
-  if (!startups.length) return <p className="text-center font-body text-[14px] text-slate py-12">No startups found.</p>;
+  if (loading) return <div className="space-y-2 mt-4">{Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-12 w-full bg-[#1C1C1A]" />)}</div>;
+  if (!startups.length) return <p className="text-center font-body text-[14px] text-[#5A5B53] py-12">No startups found.</p>;
 
   return (
     <Table>
       <TableHeader>
-        <TableRow>
+        <TableRow className="border-[#2A2A28] hover:bg-transparent">
           {["Startup", "Founder", "Industry", "Stage", "Founded", "Actions"].map(h => (
-            <TableHead key={h} className={`font-mono text-[11px] uppercase tracking-[0.06em]${h === "Actions" ? " text-right" : ""}`}>{h}</TableHead>
+            <TableHead key={h} className={`font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]${h === "Actions" ? " text-right" : ""}`}>{h}</TableHead>
           ))}
         </TableRow>
       </TableHeader>
       <TableBody>
         {startups.map((s) => (
-          <TableRow key={s.id}>
-            <TableCell className="font-body font-medium text-ink">{s.name}</TableCell>
-            <TableCell className="font-body text-[13px] text-slate">{s.profile_email ?? s.profile_name ?? "—"}</TableCell>
-            <TableCell className="font-mono text-[11px] text-slate uppercase tracking-[0.04em]">{s.industry}</TableCell>
-            <TableCell className="font-mono text-[11px] text-slate uppercase tracking-[0.04em]">{s.stage}</TableCell>
-            <TableCell className="font-body text-[13px] text-slate">{s.founded_year}</TableCell>
+          <TableRow key={s.id} className="border-[#2A2A28] hover:bg-[#1C1C1A]/50">
+            <TableCell className="font-body font-medium text-[#F5F1E8]">{s.name}</TableCell>
+            <TableCell className="font-body text-[13px] text-[#8A8B80]">{s.profile_email ?? s.profile_name ?? "—"}</TableCell>
+            <TableCell className="font-mono text-[11px] text-[#8A8B80] uppercase tracking-[0.04em]">{s.industry}</TableCell>
+            <TableCell className="font-mono text-[11px] text-[#8A8B80] uppercase tracking-[0.04em]">{s.stage}</TableCell>
+            <TableCell className="font-body text-[13px] text-[#8A8B80]">{s.founded_year}</TableCell>
             <TableCell className="text-right">
               <button
-                className="inline-flex items-center gap-1 font-body text-[13px] text-red-600 hover:underline disabled:opacity-40"
+                className="inline-flex items-center gap-1 font-body text-[13px] text-red-400 hover:underline disabled:opacity-40"
                 disabled={deletingId === s.id}
                 onClick={() => deleteStartup(s.id, s.name)}
               >
@@ -220,15 +220,15 @@ function UsersTab() {
     setSavingId(null);
   };
 
-  if (loading) return <div className="space-y-2 mt-4">{Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-12 w-full" />)}</div>;
-  if (!users.length) return <p className="text-center font-body text-[14px] text-slate py-12">No users found.</p>;
+  if (loading) return <div className="space-y-2 mt-4">{Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} className="h-12 w-full bg-[#1C1C1A]" />)}</div>;
+  if (!users.length) return <p className="text-center font-body text-[14px] text-[#5A5B53] py-12">No users found.</p>;
 
   return (
     <Table>
       <TableHeader>
-        <TableRow>
+        <TableRow className="border-[#2A2A28] hover:bg-transparent">
           {["Name", "Email", "Current Role", "Change Role"].map((h, i) => (
-            <TableHead key={h} className={`font-mono text-[11px] uppercase tracking-[0.06em]${i === 3 ? " text-right" : ""}`}>{h}</TableHead>
+            <TableHead key={h} className={`font-mono text-[11px] uppercase tracking-[0.06em] text-[#5A5B53]${i === 3 ? " text-right" : ""}`}>{h}</TableHead>
           ))}
         </TableRow>
       </TableHeader>
@@ -237,27 +237,27 @@ function UsersTab() {
           const selected = pendingRoles[u.user_id] ?? u.role ?? "";
           const isDirty = pendingRoles[u.user_id] !== undefined;
           return (
-            <TableRow key={u.user_id}>
-              <TableCell className="font-body font-medium text-ink">{u.full_name ?? "—"}</TableCell>
-              <TableCell className="font-body text-[13px] text-slate">{u.email ?? "—"}</TableCell>
+            <TableRow key={u.user_id} className="border-[#2A2A28] hover:bg-[#1C1C1A]/50">
+              <TableCell className="font-body font-medium text-[#F5F1E8]">{u.full_name ?? "—"}</TableCell>
+              <TableCell className="font-body text-[13px] text-[#8A8B80]">{u.email ?? "—"}</TableCell>
               <TableCell>
                 {u.role
                   ? <span className={`font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 rounded-sm border ${roleBadge[u.role] ?? roleBadge.applicant}`}>{u.role}</span>
-                  : <span className="font-body text-[13px] text-slate">no role</span>
+                  : <span className="font-body text-[13px] text-[#5A5B53]">no role</span>
                 }
               </TableCell>
               <TableCell className="text-right">
                 <div className="flex items-center justify-end gap-2">
                   <Select value={selected} onValueChange={(val) => setPendingRoles((prev) => ({ ...prev, [u.user_id]: val }))}>
-                    <SelectTrigger className="w-32 h-8 text-[13px] font-body">
+                    <SelectTrigger className="w-32 h-8 text-[13px] font-body bg-[#1C1C1A] border-[#2A2A28] text-[#F5F1E8]">
                       <SelectValue placeholder="Select role" />
                     </SelectTrigger>
-                    <SelectContent>
-                      {APP_ROLES.map((r) => <SelectItem key={r} value={r} className="text-[13px] font-body">{r}</SelectItem>)}
+                    <SelectContent className="bg-[#1C1C1A] border-[#2A2A28]">
+                      {APP_ROLES.map((r) => <SelectItem key={r} value={r} className="text-[13px] font-body text-[#F5F1E8] focus:bg-[#2A2A28] focus:text-[#F5F1E8]">{r}</SelectItem>)}
                     </SelectContent>
                   </Select>
                   <button
-                    className="inline-flex items-center gap-1.5 h-8 px-3 bg-ink text-white font-body text-[12px] rounded-sm hover:bg-crimson transition-colors disabled:opacity-40"
+                    className="inline-flex items-center gap-1.5 h-8 px-3 bg-crimson text-white font-body text-[12px] rounded-sm hover:bg-crimson-dim transition-colors disabled:opacity-40"
                     disabled={!isDirty || savingId === u.user_id}
                     onClick={() => saveRole(u.user_id)}
                   >
@@ -283,10 +283,10 @@ export default function Admin() {
 
   if (loading || roleLoading) {
     return (
-      <div className="min-h-screen bg-parchment">
+      <div className="min-h-screen bg-[#0A0A09]">
         <Navbar />
         <div className="container mx-auto px-6 py-16 space-y-3">
-          {Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-10 w-full" />)}
+          {Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-10 w-full bg-[#1C1C1A]" />)}
         </div>
       </div>
     );
@@ -295,30 +295,34 @@ export default function Admin() {
   if (role !== "admin") return null;
 
   return (
-    <div className="min-h-screen bg-parchment">
+    <div className="min-h-screen bg-[#0A0A09]">
       <Navbar />
-      <div className="container mx-auto px-6 py-16 max-w-6xl">
+      <div className="fixed inset-0 grid-overlay pointer-events-none opacity-20" />
 
+      <div className="relative container mx-auto px-6 py-16 max-w-6xl">
         <div className="mb-12">
-          <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.1em] mb-3">Administration</p>
-          <h1 className="font-display font-bold text-[39px] text-ink leading-[1.1]">Admin Panel</h1>
-          <p className="font-body text-[16px] text-slate mt-2">Manage investors, startups, and users</p>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
+            <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">Administration</p>
+          </div>
+          <h1 className="font-display font-bold text-[39px] text-[#F5F1E8] leading-[1.1]">Admin Panel</h1>
+          <p className="font-body text-[16px] text-[#5A5B53] mt-2">Manage investors, startups, and users</p>
         </div>
 
-        <hr className="border-[#D6D0C4] mb-10" />
+        <div className="h-px bg-[#2A2A28] mb-10" />
 
         <Tabs defaultValue="investors">
-          <TabsList className="mb-8 bg-[#EDE9DE] rounded-sm p-1 gap-1">
-            <TabsTrigger value="investors" className="font-body text-[13px] font-medium rounded-sm data-[state=active]:bg-white data-[state=active]:text-ink">Investors</TabsTrigger>
-            <TabsTrigger value="startups"  className="font-body text-[13px] font-medium rounded-sm data-[state=active]:bg-white data-[state=active]:text-ink">Startups</TabsTrigger>
-            <TabsTrigger value="users"     className="font-body text-[13px] font-medium rounded-sm data-[state=active]:bg-white data-[state=active]:text-ink">Users</TabsTrigger>
+          <TabsList className="mb-8 bg-[#141413] border border-[#2A2A28] rounded-sm p-1 gap-1">
+            <TabsTrigger value="investors" className="font-body text-[13px] font-medium rounded-sm text-[#8A8B80] data-[state=active]:bg-[#1C1C1A] data-[state=active]:text-[#F5F1E8]">Investors</TabsTrigger>
+            <TabsTrigger value="startups"  className="font-body text-[13px] font-medium rounded-sm text-[#8A8B80] data-[state=active]:bg-[#1C1C1A] data-[state=active]:text-[#F5F1E8]">Startups</TabsTrigger>
+            <TabsTrigger value="users"     className="font-body text-[13px] font-medium rounded-sm text-[#8A8B80] data-[state=active]:bg-[#1C1C1A] data-[state=active]:text-[#F5F1E8]">Users</TabsTrigger>
           </TabsList>
 
           <TabsContent value="investors">
-            <div className="bg-white border border-[#D6D0C4] rounded-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-[#D6D0C4]">
+            <div className="bg-[#141413] border border-[#2A2A28] rounded-sm overflow-hidden">
+              <div className="px-6 py-4 border-b border-[#2A2A28]">
                 <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-crimson mb-1">Review Queue</p>
-                <h2 className="font-display font-bold text-[20px] text-ink">Investor Applications</h2>
+                <h2 className="font-display font-bold text-[20px] text-[#F5F1E8]">Investor Applications</h2>
               </div>
               <div className="p-4">
                 <InvestorsTab />
@@ -327,10 +331,10 @@ export default function Admin() {
           </TabsContent>
 
           <TabsContent value="startups">
-            <div className="bg-white border border-[#D6D0C4] rounded-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-[#D6D0C4]">
+            <div className="bg-[#141413] border border-[#2A2A28] rounded-sm overflow-hidden">
+              <div className="px-6 py-4 border-b border-[#2A2A28]">
                 <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-crimson mb-1">Directory</p>
-                <h2 className="font-display font-bold text-[20px] text-ink">All Startups</h2>
+                <h2 className="font-display font-bold text-[20px] text-[#F5F1E8]">All Startups</h2>
               </div>
               <div className="p-4">
                 <StartupsTab />
@@ -339,10 +343,10 @@ export default function Admin() {
           </TabsContent>
 
           <TabsContent value="users">
-            <div className="bg-white border border-[#D6D0C4] rounded-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-[#D6D0C4]">
+            <div className="bg-[#141413] border border-[#2A2A28] rounded-sm overflow-hidden">
+              <div className="px-6 py-4 border-b border-[#2A2A28]">
                 <p className="font-mono text-[11px] uppercase tracking-[0.08em] text-crimson mb-1">Accounts</p>
-                <h2 className="font-display font-bold text-[20px] text-ink">All Users</h2>
+                <h2 className="font-display font-bold text-[20px] text-[#F5F1E8]">All Users</h2>
               </div>
               <div className="p-4">
                 <UsersTab />

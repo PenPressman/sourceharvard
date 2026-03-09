@@ -26,22 +26,31 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-parchment">
+    <div className="min-h-screen bg-[#0A0A09]">
       <Navbar />
-      <div className="flex items-center justify-center py-24 px-6">
+
+      {/* Background grid */}
+      <div className="fixed inset-0 grid-overlay pointer-events-none opacity-50" />
+      {/* Crimson glow */}
+      <div className="fixed top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-crimson/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative flex items-center justify-center py-24 px-6">
         <div className="w-full max-w-md">
           {/* Header */}
           <div className="mb-10">
-            <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.1em] mb-3">Sign In</p>
-            <h1 className="font-display font-bold text-[39px] text-ink leading-[1.1] mb-2">
+            <div className="flex items-center gap-2 mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
+              <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">Sign In</p>
+            </div>
+            <h1 className="font-display font-bold text-[39px] text-[#F5F1E8] leading-[1.1] mb-2">
               Welcome back.
             </h1>
-            <p className="font-body text-[16px] text-slate">Sign in to manage your profile</p>
+            <p className="font-body text-[16px] text-[#8A8B80]">Sign in to manage your profile</p>
           </div>
 
-          <form onSubmit={handleLogin} className="bg-white border border-[#D6D0C4] rounded-sm p-8 shadow-card space-y-6">
+          <form onSubmit={handleLogin} className="bg-[#141413] border border-[#2A2A28] rounded-sm p-8 space-y-6">
             <div>
-              <Label htmlFor="email" className="font-body text-[13px] font-medium text-ink uppercase tracking-[0.04em]">
+              <Label htmlFor="email" className="font-body text-[13px] font-medium text-[#8A8B80] uppercase tracking-[0.04em]">
                 Email
               </Label>
               <input
@@ -51,11 +60,11 @@ export default function LoginPage() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
-                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-ink placeholder:text-slate bg-white border border-[#D6D0C4] rounded-sm outline-none focus:border-ink transition-colors duration-150"
+                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-[#F5F1E8] placeholder:text-[#5A5B53] bg-[#0D0D0C] border border-[#2A2A28] rounded-sm outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
               />
             </div>
             <div>
-              <Label htmlFor="password" className="font-body text-[13px] font-medium text-ink uppercase tracking-[0.04em]">
+              <Label htmlFor="password" className="font-body text-[13px] font-medium text-[#8A8B80] uppercase tracking-[0.04em]">
                 Password
               </Label>
               <input
@@ -65,12 +74,12 @@ export default function LoginPage() {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 required
-                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-ink placeholder:text-slate bg-white border border-[#D6D0C4] rounded-sm outline-none focus:border-ink transition-colors duration-150"
+                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-[#F5F1E8] placeholder:text-[#5A5B53] bg-[#0D0D0C] border border-[#2A2A28] rounded-sm outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
               />
             </div>
 
             {error && (
-              <div className="flex items-start gap-2 bg-red-50 border border-red-200 text-red-700 rounded-sm p-3 font-body text-[14px]">
+              <div className="flex items-start gap-2 bg-crimson/10 border border-crimson/30 text-crimson rounded-sm p-3 font-body text-[14px]">
                 <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 {error}
               </div>
@@ -79,12 +88,12 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-11 bg-ink text-white font-body font-medium text-[14px] rounded-sm hover:bg-crimson transition-colors duration-150 disabled:opacity-60"
+              className="w-full h-11 bg-crimson text-white font-body font-medium text-[14px] rounded-sm hover:bg-crimson-dim transition-colors duration-150 disabled:opacity-60"
             >
               {loading ? "Signing in…" : "Sign in"}
             </button>
 
-            <p className="text-center font-body text-[14px] text-slate">
+            <p className="text-center font-body text-[14px] text-[#5A5B53]">
               Don't have an account?{" "}
               <Link to="/signup" className="text-crimson hover:text-crimson-dim underline underline-offset-2 font-medium">
                 Join now

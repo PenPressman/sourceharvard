@@ -43,12 +43,12 @@ export default function StartupCard({ startup, score }: StartupCardProps) {
           </span>
           <div className="flex items-center gap-1.5">
             {startup.is_hiring && (
-              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-crimson text-white rounded-sm">
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#FF6B35]/15 text-[#FF6B35] border border-[#FF6B35]/30 rounded-sm">
                 <Briefcase className="w-2.5 h-2.5" />Hiring
               </span>
             )}
             {startup.open_to_vc && (
-              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28] rounded-sm">
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#22C55E]/10 text-[#22C55E] border border-[#22C55E]/30 rounded-sm">
                 <TrendingUp className="w-2.5 h-2.5" />VC
               </span>
             )}

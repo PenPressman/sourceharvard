@@ -124,7 +124,7 @@ export default function BrowsePage() {
 
             {/* Subhead */}
             <p className="font-body text-[18px] text-[#C8C9C0] leading-relaxed max-w-[520px] mb-10">
-              Browse ventures built by Harvard founders. Connect, invest, and build the next generation of companies.
+              Browse ventures built by Harvard founders. Find co-founders, explore careers, or signal interest as an investor.
             </p>
 
             {/* CTAs */}

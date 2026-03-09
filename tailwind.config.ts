@@ -12,9 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "Georgia", "serif"],
-        body:    ["DM Sans",          "system-ui", "sans-serif"],
-        mono:    ["DM Mono",          "Courier New", "monospace"],
+        display: ["DM Sans", "system-ui", "sans-serif"],
+        body:    ["DM Sans", "system-ui", "sans-serif"],
+        mono:    ["DM Mono", "Courier New", "monospace"],
       },
       colors: {
         border:     "hsl(var(--border))",

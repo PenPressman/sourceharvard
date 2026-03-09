@@ -42,15 +42,15 @@ export default function LoginPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
               <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">Sign In</p>
             </div>
-            <h1 className="font-display font-bold text-[39px] text-[#F5F1E8] leading-[1.1] mb-2">
+            <h1 className="font-display font-bold text-[39px] text-white leading-[1.1] mb-2">
               Welcome back.
             </h1>
-            <p className="font-body text-[16px] text-[#8A8B80]">Sign in to manage your profile</p>
+            <p className="font-body text-[16px] text-[#C8C9C0]">Sign in to manage your profile</p>
           </div>
 
           <form onSubmit={handleLogin} className="bg-[#141413] border border-[#2A2A28] rounded-sm p-8 space-y-6">
             <div>
-              <Label htmlFor="email" className="font-body text-[13px] font-medium text-[#8A8B80] uppercase tracking-[0.04em]">
+              <Label htmlFor="email" className="font-body text-[13px] font-medium text-[#C8C9C0] uppercase tracking-[0.04em]">
                 Email
               </Label>
               <input
@@ -60,11 +60,11 @@ export default function LoginPage() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 required
-                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-[#F5F1E8] placeholder:text-[#5A5B53] bg-[#0D0D0C] border border-[#2A2A28] rounded-sm outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
+                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-white placeholder:text-[#8A8B80] bg-[#0D0D0C] border border-[#2A2A28] rounded-sm outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
               />
             </div>
             <div>
-              <Label htmlFor="password" className="font-body text-[13px] font-medium text-[#8A8B80] uppercase tracking-[0.04em]">
+              <Label htmlFor="password" className="font-body text-[13px] font-medium text-[#C8C9C0] uppercase tracking-[0.04em]">
                 Password
               </Label>
               <input
@@ -74,7 +74,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 required
-                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-[#F5F1E8] placeholder:text-[#5A5B53] bg-[#0D0D0C] border border-[#2A2A28] rounded-sm outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
+                className="mt-2 w-full h-11 px-4 font-body text-[15px] text-white placeholder:text-[#8A8B80] bg-[#0D0D0C] border border-[#2A2A28] rounded-sm outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
               />
             </div>
 
@@ -93,7 +93,7 @@ export default function LoginPage() {
               {loading ? "Signing in…" : "Sign in"}
             </button>
 
-            <p className="text-center font-body text-[14px] text-[#5A5B53]">
+            <p className="text-center font-body text-[14px] text-[#C8C9C0]">
               Don't have an account?{" "}
               <Link to="/signup" className="text-crimson hover:text-crimson-dim underline underline-offset-2 font-medium">
                 Join now

@@ -97,7 +97,7 @@ export default function BrowsePage() {
 
         <div className="container mx-auto px-6 py-24 relative">
           <div className="max-w-3xl">
-        {/* System label */}
+            {/* System label */}
             <div className="flex items-center gap-3 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
               <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">
@@ -112,7 +112,7 @@ export default function BrowsePage() {
             </h1>
 
             {/* Subhead */}
-            <p className="font-body text-[18px] text-[#A8A9A0] leading-relaxed max-w-[520px] mb-10">
+            <p className="font-body text-[18px] text-[#C8C9C0] leading-relaxed max-w-[520px] mb-10">
               Browse ventures built by Harvard founders. Connect, invest, and build the next generation of companies.
             </p>
 
@@ -125,7 +125,7 @@ export default function BrowsePage() {
                       Join the Network
                     </button>
                   </Link>
-                  <Link to="/login" className="font-body text-[14px] text-[#A8A9A0] hover:text-white transition-colors duration-150 underline underline-offset-4">
+                  <Link to="/login" className="font-body text-[14px] text-[#C8C9C0] hover:text-white transition-colors duration-150 underline underline-offset-4">
                     Sign in
                   </Link>
                 </>
@@ -142,7 +142,7 @@ export default function BrowsePage() {
         </div>
       </section>
 
-  {/* Ticker bar */}
+      {/* Ticker bar */}
       <div className="ticker-border bg-[#0D0D0C] py-2 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex items-center gap-6 overflow-x-auto scrollbar-none">
@@ -153,7 +153,7 @@ export default function BrowsePage() {
               { name: "B2B SaaS",       color: "text-[#FF4D8D]",        dot: "bg-[#FF4D8D]" },
               { name: "Deep Tech",      color: "text-indigo-400",       dot: "bg-indigo-400" },
               { name: "Consumer",       color: "text-[#FF6B35]",        dot: "bg-[#FF6B35]" },
-              { name: "Hardware",       color: "text-[#A8A9A0]",        dot: "bg-[#A8A9A0]" },
+              { name: "Hardware",       color: "text-[#C8C9C0]",        dot: "bg-[#C8C9C0]" },
               { name: "Social Impact",  color: "text-teal-400",         dot: "bg-teal-400" },
             ].map(({ name, color, dot }) => {
               const count = startups.filter(s => s.industry === name).length;
@@ -161,10 +161,10 @@ export default function BrowsePage() {
                 <button
                   key={name}
                   onClick={() => setFilterIndustry(name as IndustryType)}
-                  className={`flex-shrink-0 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-150 ${filterIndustry === name ? color : "text-[#6A6B63] hover:text-[#A8A9A0]"}`}
+                  className={`flex-shrink-0 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-150 ${filterIndustry === name ? color : "text-[#8A8B80] hover:text-[#C8C9C0]"}`}
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${filterIndustry === name ? dot : "bg-[#2A2A28]"}`} />
-                  {name} <span className="text-[#2A2A28] ml-1">({count})</span>
+                  {name} <span className="text-[#3A3A38] ml-1">({count})</span>
                 </button>
               ) : null;
             })}
@@ -179,12 +179,12 @@ export default function BrowsePage() {
         <div className="mb-8">
           <div className="flex max-w-[680px]">
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#5A5B53] pointer-events-none" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8A8B80] pointer-events-none" />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search startups…"
-                className="w-full h-[52px] pl-11 pr-4 font-body text-[16px] text-[#F5F1E8] placeholder:text-[#5A5B53] bg-[#141413] border-[1.5px] border-[#2A2A28] rounded-l-sm rounded-r-none outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
+                className="w-full h-[52px] pl-11 pr-4 font-body text-[16px] text-white placeholder:text-[#8A8B80] bg-[#141413] border-[1.5px] border-[#2A2A28] rounded-l-sm rounded-r-none outline-none focus:border-crimson focus:shadow-glow transition-all duration-150"
               />
             </div>
             <div className="relative">
@@ -210,13 +210,13 @@ export default function BrowsePage() {
                 className={`appearance-none h-8 pl-3 pr-8 font-body text-[13px] rounded-sm border cursor-pointer outline-none transition-colors duration-150 ${
                   filterIndustry
                     ? "bg-crimson/15 text-crimson border-crimson/40"
-                    : "bg-[#141413] text-[#8A8B80] border-[#2A2A28] hover:border-[#5A5B53]"
+                    : "bg-[#141413] text-[#C8C9C0] border-[#2A2A28] hover:border-[#5A5B53]"
                 }`}
               >
                 <option value="">Industry</option>
                 {INDUSTRIES.map((i) => <option key={i} value={i}>{i}</option>)}
               </select>
-              <ChevronDown className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 ${filterIndustry ? "text-crimson" : "text-[#5A5B53]"}`} />
+              <ChevronDown className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 ${filterIndustry ? "text-crimson" : "text-[#8A8B80]"}`} />
             </div>
 
             <div className="relative">
@@ -226,13 +226,13 @@ export default function BrowsePage() {
                 className={`appearance-none h-8 pl-3 pr-8 font-body text-[13px] rounded-sm border cursor-pointer outline-none transition-colors duration-150 ${
                   filterStage
                     ? "bg-crimson/15 text-crimson border-crimson/40"
-                    : "bg-[#141413] text-[#8A8B80] border-[#2A2A28] hover:border-[#5A5B53]"
+                    : "bg-[#141413] text-[#C8C9C0] border-[#2A2A28] hover:border-[#5A5B53]"
                 }`}
               >
                 <option value="">Stage</option>
                 {STAGES.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
-              <ChevronDown className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 ${filterStage ? "text-crimson" : "text-[#5A5B53]"}`} />
+              <ChevronDown className={`pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 ${filterStage ? "text-crimson" : "text-[#8A8B80]"}`} />
             </div>
 
             {[
@@ -245,7 +245,7 @@ export default function BrowsePage() {
                 className={`inline-flex items-center gap-1.5 h-8 px-3 font-body text-[13px] rounded-sm border transition-colors duration-150 ${
                   active
                     ? "bg-crimson/15 text-crimson border-crimson/40"
-                    : "bg-[#141413] text-[#8A8B80] border-[#2A2A28] hover:border-[#5A5B53]"
+                    : "bg-[#141413] text-[#C8C9C0] border-[#2A2A28] hover:border-[#5A5B53]"
                 }`}
               >
                 <Icon className="w-3 h-3" />
@@ -256,7 +256,7 @@ export default function BrowsePage() {
             {(hasFilters || search) && (
               <button
                 onClick={clearFilters}
-                className="h-8 px-3 font-body text-[13px] text-[#5A5B53] border border-[#2A2A28] rounded-sm hover:border-[#5A5B53] hover:text-[#8A8B80] flex items-center gap-1 transition-colors duration-150"
+                className="h-8 px-3 font-body text-[13px] text-[#8A8B80] border border-[#2A2A28] rounded-sm hover:border-[#5A5B53] hover:text-[#C8C9C0] flex items-center gap-1 transition-colors duration-150"
               >
                 <X className="w-3 h-3" /> Clear
               </button>
@@ -266,7 +266,7 @@ export default function BrowsePage() {
 
         {/* Count + divider */}
         <div className="flex items-center gap-4 mb-8">
-          <span className="font-mono text-[12px] text-[#5A5B53] uppercase tracking-[0.06em]">
+          <span className="font-mono text-[12px] text-[#8A8B80] uppercase tracking-[0.06em]">
             {loading ? "Loading…" : `${sorted.length} result${sorted.length !== 1 ? "s" : ""}`}
           </span>
           {sortBy !== "recent" && (
@@ -291,8 +291,8 @@ export default function BrowsePage() {
           </div>
         ) : sorted.length === 0 ? (
           <div className="text-center py-24 border border-[#2A2A28] rounded-sm bg-[#141413]">
-            <p className="font-display text-[25px] text-[#F5F1E8] mb-3">No startups found</p>
-            <p className="font-body text-[14px] text-[#8A8B80]">
+            <p className="font-display text-[25px] text-white mb-3">No startups found</p>
+            <p className="font-body text-[14px] text-[#C8C9C0]">
               {hasFilters || search ? "Try adjusting your filters." : "Be the first to add a startup!"}
             </p>
             {!hasFilters && !search && user && (
@@ -327,40 +327,39 @@ export default function BrowsePage() {
                 <div className="w-7 h-7 rounded-sm bg-crimson flex items-center justify-center">
                   <span className="text-white font-display font-bold text-sm">S</span>
                 </div>
-                <span className="font-display font-bold text-[#F5F1E8] text-[17px]">Source</span>
-                <span className="font-body font-light text-[#5A5B53] text-[13px]">Harvard</span>
+                <span className="font-display font-bold text-white text-[17px]">Source</span>
+                <span className="font-body font-light text-[#8A8B80] text-[13px]">Harvard</span>
               </div>
-              <p className="font-body text-[14px] text-[#5A5B53] leading-relaxed max-w-xs">
+              <p className="font-body text-[14px] text-[#C8C9C0] leading-relaxed max-w-xs">
                 The Harvard startup directory connecting founders, investors, and talent across the ecosystem.
               </p>
             </div>
             {/* Directory */}
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#5A5B53] mb-4">Directory</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#8A8B80] mb-4">Directory</p>
               <div className="space-y-2.5">
                 {["Browse Startups", "Open Roles", "Investor Network", "Submit Startup"].map(l => (
-                  <p key={l} className="font-body text-[14px] text-[#5A5B53] hover:text-[#8A8B80] cursor-pointer transition-colors">{l}</p>
+                  <p key={l} className="font-body text-[14px] text-[#C8C9C0] hover:text-white cursor-pointer transition-colors">{l}</p>
                 ))}
               </div>
             </div>
             {/* Platform */}
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#5A5B53] mb-4">Platform</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#8A8B80] mb-4">Platform</p>
               <div className="space-y-2.5">
                 {["About", "Sign In", "Join", "Admin"].map(l => (
-                  <p key={l} className="font-body text-[14px] text-[#5A5B53] hover:text-[#8A8B80] cursor-pointer transition-colors">{l}</p>
+                  <p key={l} className="font-body text-[14px] text-[#C8C9C0] hover:text-white cursor-pointer transition-colors">{l}</p>
                 ))}
               </div>
             </div>
           </div>
-          {/* Bottom bar */}
-          <div className="pt-8 border-t border-[#1E1E1C] flex items-center justify-between gap-4 flex-wrap">
-            <p className="font-mono text-[11px] text-[#5A5B53] uppercase tracking-[0.06em]">
-              © {new Date().getFullYear()} Source Harvard · All rights reserved
-            </p>
-            <p className="font-mono text-[11px] text-[#2A2A28] uppercase tracking-[0.06em]">
-              Built for the Harvard ecosystem
-            </p>
+          <div className="h-px bg-[#2A2A28] mb-6" />
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <p className="font-mono text-[11px] text-[#8A8B80]">© {new Date().getFullYear()} Source Harvard. For Harvard community use.</p>
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+              <span className="font-mono text-[11px] text-[#8A8B80]">System operational</span>
+            </div>
           </div>
         </div>
       </footer>

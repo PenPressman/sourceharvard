@@ -54,10 +54,10 @@ export default function Dashboard() {
             <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
             <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">Your Account</p>
           </div>
-          <h1 className="font-display font-bold text-[39px] text-[#F5F1E8] leading-[1.1] capitalize">
+          <h1 className="font-display font-bold text-[39px] text-white leading-[1.1] capitalize">
             {role} Dashboard
           </h1>
-          <p className="font-body text-[16px] text-[#5A5B53] mt-2">{user?.email}</p>
+          <p className="font-body text-[16px] text-[#C8C9C0] mt-2">{user?.email}</p>
         </div>
 
         <div className="h-px bg-[#2A2A28] mb-12" />
@@ -68,8 +68,8 @@ export default function Dashboard() {
             <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-amber-500/60" />
             <Clock className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="font-display font-bold text-[20px] text-[#F5F1E8]">Your account is under review</p>
-              <p className="font-body text-[14px] text-[#8A8B80] mt-1 leading-relaxed">
+              <p className="font-display font-bold text-[20px] text-white">Your account is under review</p>
+              <p className="font-body text-[14px] text-[#C8C9C0] mt-1 leading-relaxed">
                 We're reviewing your investor profile. You'll receive an email once approved.
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function Dashboard() {
         {role === "founder" && (
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="font-display font-bold text-[25px] text-[#F5F1E8]">My Startups</h2>
+              <h2 className="font-display font-bold text-[25px] text-white">My Startups</h2>
               <Link to="/submit">
                 <button className="inline-flex items-center gap-2 h-9 px-4 bg-crimson text-white font-body font-medium text-[13px] rounded-sm hover:bg-crimson-dim transition-colors duration-150">
                   <Plus className="w-3.5 h-3.5" />Add Startup
@@ -94,9 +94,9 @@ export default function Dashboard() {
             ) : myStartups.length === 0 ? (
               <div className="border border-[#2A2A28] rounded-sm p-12 text-center bg-[#141413] relative overflow-hidden">
                 <div className="absolute inset-0 grid-overlay opacity-50" />
-                <Building2 className="w-8 h-8 text-[#5A5B53] mx-auto mb-4 relative" />
-                <p className="font-display font-bold text-[20px] text-[#F5F1E8] mb-2 relative">No startups yet</p>
-                <p className="font-body text-[14px] text-[#8A8B80] mb-6 relative">Create your first startup profile to appear in the directory.</p>
+                <Building2 className="w-8 h-8 text-[#8A8B80] mx-auto mb-4 relative" />
+                <p className="font-display font-bold text-[20px] text-white mb-2 relative">No startups yet</p>
+                <p className="font-body text-[14px] text-[#C8C9C0] mb-6 relative">Create your first startup profile to appear in the directory.</p>
                 <Link to="/submit" className="relative">
                   <button className="h-11 px-6 bg-crimson text-white font-body font-medium text-[14px] rounded-sm hover:bg-crimson-dim transition-colors duration-150">
                     Create Startup Profile
@@ -113,14 +113,14 @@ export default function Dashboard() {
                           <span className="font-display font-bold text-crimson text-base">{s.name.charAt(0)}</span>
                         </div>
                         <div>
-                          <p className="font-display font-bold text-[17px] text-[#F5F1E8]">{s.name}</p>
-                          <p className="font-mono text-[11px] text-[#5A5B53] uppercase tracking-[0.06em]">{s.industry} · {s.stage}</p>
+                          <p className="font-display font-bold text-[17px] text-white">{s.name}</p>
+                          <p className="font-mono text-[11px] text-[#C8C9C0] uppercase tracking-[0.06em]">{s.industry} · {s.stage}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2 flex-wrap">
                         {s.is_hiring && <span className="font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-crimson text-white rounded-sm">Hiring</span>}
-                        {s.open_to_vc && <span className="font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28] rounded-sm">VC Ready</span>}
-                        <ArrowRight className="w-4 h-4 text-[#5A5B53] group-hover:text-crimson transition-colors" />
+                        {s.open_to_vc && <span className="font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#1C1C1A] text-[#C8C9C0] border border-[#2A2A28] rounded-sm">VC Ready</span>}
+                        <ArrowRight className="w-4 h-4 text-[#8A8B80] group-hover:text-crimson transition-colors" />
                       </div>
                     </div>
                   </Link>
@@ -137,16 +137,16 @@ export default function Dashboard() {
               <div className="bg-[#141413] border border-[#2A2A28] rounded-sm p-6 hover:border-crimson/40 transition-colors duration-150 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-8 h-px bg-crimson opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Building2 className="w-6 h-6 text-crimson mb-4" />
-                <p className="font-display font-bold text-[20px] text-[#F5F1E8]">Browse Startups</p>
-                <p className="font-body text-[14px] text-[#8A8B80] mt-2">Explore Harvard ventures and find opportunities.</p>
+                <p className="font-display font-bold text-[20px] text-white">Browse Startups</p>
+                <p className="font-body text-[14px] text-[#C8C9C0] mt-2">Explore Harvard ventures and find opportunities.</p>
               </div>
             </Link>
             <Link to="/" className="block group">
               <div className="bg-[#141413] border border-[#2A2A28] rounded-sm p-6 hover:border-crimson/40 transition-colors duration-150 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-8 h-px bg-crimson opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Briefcase className="w-6 h-6 text-crimson mb-4" />
-                <p className="font-display font-bold text-[20px] text-[#F5F1E8]">Open Roles</p>
-                <p className="font-body text-[14px] text-[#8A8B80] mt-2">Find roles that match your skills and interests.</p>
+                <p className="font-display font-bold text-[20px] text-white">Open Roles</p>
+                <p className="font-body text-[14px] text-[#C8C9C0] mt-2">Find roles that match your skills and interests.</p>
               </div>
             </Link>
           </div>
@@ -159,8 +159,8 @@ export default function Dashboard() {
               <div className="bg-[#141413] border border-[#2A2A28] rounded-sm p-6 hover:border-crimson/40 transition-colors duration-150 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-8 h-px bg-crimson opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Building2 className="w-6 h-6 text-crimson mb-4" />
-                <p className="font-display font-bold text-[20px] text-[#F5F1E8]">Browse Startups</p>
-                <p className="font-body text-[14px] text-[#8A8B80] mt-2">Discover Harvard ventures actively seeking investment.</p>
+                <p className="font-display font-bold text-[20px] text-white">Browse Startups</p>
+                <p className="font-body text-[14px] text-[#C8C9C0] mt-2">Discover Harvard ventures actively seeking investment.</p>
               </div>
             </Link>
           </div>

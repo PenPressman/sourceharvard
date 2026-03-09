@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
-import { Search, Plus, X, ChevronDown, Flame, ThumbsUp, Building2, Clock, TrendingUp, Briefcase, Users } from "lucide-react";
+import { Search, Plus, X, ChevronDown, Flame, ThumbsUp, Building2, Clock, TrendingUp, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import StartupCard from "@/components/StartupCard";
 import type { Database } from "@/integrations/supabase/types";
@@ -24,16 +24,6 @@ const SORT_OPTIONS = [
 ] as const;
 
 type SortKey = typeof SORT_OPTIONS[number]["value"];
-
-// Animated stat counter component
-function StatBlock({ value, label, delay = 0 }: { value: string; label: string; delay?: number }) {
-  return (
-    <div className="flex flex-col" style={{ animationDelay: `${delay}ms` }}>
-      <span className="font-display font-bold text-[31px] text-[#F5F1E8] leading-none">{value}</span>
-      <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#5A5B53] mt-1">{label}</span>
-    </div>
-  );
-}
 
 export default function BrowsePage() {
   const { user } = useAuth();
@@ -92,9 +82,6 @@ export default function BrowsePage() {
   const hasFilters = filterIndustry || filterStage || filterHiring || filterVC;
   const clearFilters = () => { setFilterIndustry(""); setFilterStage(""); setFilterHiring(false); setFilterVC(false); setSearch(""); };
 
-  const hiringCount = startups.filter(s => s.is_hiring).length;
-  const vcCount = startups.filter(s => s.open_to_vc).length;
-
   return (
     <div className="min-h-screen bg-[#0A0A09]">
       <Navbar />
@@ -110,7 +97,7 @@ export default function BrowsePage() {
 
         <div className="container mx-auto px-6 py-24 relative">
           <div className="max-w-3xl">
-            {/* System label */}
+        {/* System label */}
             <div className="flex items-center gap-3 mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse-crimson" />
               <p className="font-mono text-[12px] text-crimson uppercase tracking-[0.12em]">
@@ -119,18 +106,18 @@ export default function BrowsePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-bold text-[49px] text-[#F5F1E8] leading-[1.05] mb-5 max-w-[640px]">
+            <h1 className="font-body font-bold text-[49px] text-white leading-[1.05] mb-5 max-w-[640px]">
               Discover Harvard<br />
-              <span className="text-crimson italic">Student Startups</span>
+              <span className="text-crimson">Student Startups</span>
             </h1>
 
             {/* Subhead */}
-            <p className="font-body text-[18px] text-[#8A8B80] leading-relaxed max-w-[520px] mb-10">
+            <p className="font-body text-[18px] text-[#A8A9A0] leading-relaxed max-w-[520px] mb-10">
               Browse ventures built by Harvard founders. Connect, invest, and build the next generation of companies.
             </p>
 
             {/* CTAs */}
-            <div className="flex items-center gap-4 mb-12">
+            <div className="flex items-center gap-4">
               {!user ? (
                 <>
                   <Link to="/signup">
@@ -138,7 +125,7 @@ export default function BrowsePage() {
                       Join the Network
                     </button>
                   </Link>
-                  <Link to="/login" className="font-body text-[14px] text-[#8A8B80] hover:text-[#F5F1E8] transition-colors duration-150 underline underline-offset-4">
+                  <Link to="/login" className="font-body text-[14px] text-[#A8A9A0] hover:text-white transition-colors duration-150 underline underline-offset-4">
                     Sign in
                   </Link>
                 </>
@@ -151,35 +138,33 @@ export default function BrowsePage() {
                 </Link>
               )}
             </div>
-
-            {/* Stats row — data-rich, mission-control */}
-            <div className="flex items-center gap-10 pt-8 border-t border-[#2A2A28]">
-              <StatBlock value={loading ? "—" : String(startups.length)} label="Startups" />
-              <div className="w-px h-10 bg-[#2A2A28]" />
-              <StatBlock value={loading ? "—" : String(hiringCount)} label="Hiring" delay={80} />
-              <div className="w-px h-10 bg-[#2A2A28]" />
-              <StatBlock value={loading ? "—" : String(vcCount)} label="Seeking VC" delay={160} />
-              <div className="w-px h-10 bg-[#2A2A28]" />
-              <StatBlock value="40+" label="Institutions" delay={240} />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Ticker bar — mission-control feel */}
+  {/* Ticker bar */}
       <div className="ticker-border bg-[#0D0D0C] py-2 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="flex items-center gap-6 overflow-x-auto scrollbar-none">
-            {["AI/ML", "Fintech", "Biotech", "B2B SaaS", "Deep Tech", "Consumer", "Hardware", "Social Impact"].map((ind) => {
-              const count = startups.filter(s => s.industry === ind).length;
+            {[
+              { name: "AI/ML",         color: "text-violet-400",       dot: "bg-violet-400" },
+              { name: "Fintech",        color: "text-[#22C55E]",        dot: "bg-[#22C55E]" },
+              { name: "Biotech",        color: "text-sky-400",          dot: "bg-sky-400" },
+              { name: "B2B SaaS",       color: "text-[#FF4D8D]",        dot: "bg-[#FF4D8D]" },
+              { name: "Deep Tech",      color: "text-indigo-400",       dot: "bg-indigo-400" },
+              { name: "Consumer",       color: "text-[#FF6B35]",        dot: "bg-[#FF6B35]" },
+              { name: "Hardware",       color: "text-[#A8A9A0]",        dot: "bg-[#A8A9A0]" },
+              { name: "Social Impact",  color: "text-teal-400",         dot: "bg-teal-400" },
+            ].map(({ name, color, dot }) => {
+              const count = startups.filter(s => s.industry === name).length;
               return count > 0 ? (
                 <button
-                  key={ind}
-                  onClick={() => setFilterIndustry(ind as IndustryType)}
-                  className={`flex-shrink-0 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-150 ${filterIndustry === ind ? "text-crimson" : "text-[#5A5B53] hover:text-[#8A8B80]"}`}
+                  key={name}
+                  onClick={() => setFilterIndustry(name as IndustryType)}
+                  className={`flex-shrink-0 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.06em] transition-colors duration-150 ${filterIndustry === name ? color : "text-[#6A6B63] hover:text-[#A8A9A0]"}`}
                 >
-                  <span className={`w-1 h-1 rounded-full ${filterIndustry === ind ? "bg-crimson" : "bg-[#2A2A28]"}`} />
-                  {ind} <span className="text-[#2A2A28]">({count})</span>
+                  <span className={`w-1.5 h-1.5 rounded-full ${filterIndustry === name ? dot : "bg-[#2A2A28]"}`} />
+                  {name} <span className="text-[#2A2A28] ml-1">({count})</span>
                 </button>
               ) : null;
             })}

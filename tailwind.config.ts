@@ -12,9 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Playfair Display", "Georgia", "serif"],
-        body:    ["DM Sans",          "system-ui", "sans-serif"],
-        mono:    ["DM Mono",          "Courier New", "monospace"],
+        display: ["DM Sans", "system-ui", "sans-serif"],
+        body:    ["DM Sans", "system-ui", "sans-serif"],
+        mono:    ["DM Mono", "Courier New", "monospace"],
       },
       colors: {
         border:     "hsl(var(--border))",
@@ -57,14 +57,20 @@ export default {
         "surface-2": { DEFAULT: "#1C1C1A" },
         "surface-3": { DEFAULT: "#242422" },
         rule:      { DEFAULT: "#2A2A28" },
-        parchment: { DEFAULT: "#F5F1E8" },
-        slate:     { DEFAULT: "#8A8B80" },
-        "slate-dim": { DEFAULT: "#5A5B53" },
+        parchment: { DEFAULT: "#FFFFFF" },
+        slate:     { DEFAULT: "#A8A9A0" },
+        "slate-dim": { DEFAULT: "#6A6B63" },
         crimson: {
           DEFAULT: "#A51C30",
           dim:     "#C4314A",
         },
         "muted-bg":{ DEFAULT: "#1C1C1A" },
+        // Vivid accent palette
+        neon: {
+          pink:   "#FF4D8D",
+          orange: "#FF6B35",
+          green:  "#22C55E",
+        },
         sidebar: {
           DEFAULT:              "hsl(var(--sidebar-background))",
           foreground:           "hsl(var(--sidebar-foreground))",

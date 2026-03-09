@@ -4,43 +4,47 @@
 
 /* Source Harvard — Dark Institutional / Mission-Control Design System */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
     /* ── Dark Palette ─────────────────────────── */
-    --color-void:       #0A0A09;   /* deepest background */
-    --color-ink:        #0D0D0C;   /* primary background */
-    --color-surface:    #141413;   /* card surface */
-    --color-surface-2:  #1C1C1A;   /* elevated surface */
-    --color-surface-3:  #242422;   /* subtle element bg */
-    --color-rule:       #2A2A28;   /* dividers, borders */
-    --color-rule-dim:   #1E1E1C;   /* subtle borders */
-    --color-parchment:  #F5F1E8;   /* primary text */
-    --color-slate:      #8A8B80;   /* secondary text */
-    --color-slate-dim:  #5A5B53;   /* muted text */
+    --color-void:       #0A0A09;
+    --color-ink:        #0D0D0C;
+    --color-surface:    #141413;
+    --color-surface-2:  #1C1C1A;
+    --color-surface-3:  #242422;
+    --color-rule:       #2A2A28;
+    --color-rule-dim:   #1E1E1C;
+    --color-parchment:  #FFFFFF;   /* pure white primary text */
+    --color-slate:      #A8A9A0;   /* lighter secondary text */
+    --color-slate-dim:  #6A6B63;   /* muted text */
+    /* ── Accent palette ─── */
+    --color-pink:       #FF4D8D;
+    --color-orange:     #FF6B35;
+    --color-green:      #22C55E;
     --color-crimson:    #A51C30;   /* accent */
     --color-crimson-dim:#C4314A;   /* hover accent */
     --color-crimson-glow: rgba(165,28,48,0.15);
 
     /* ── Semantic tokens (Tailwind-compatible HSL format) ─ */
-    --background:       60 4% 5%;          /* void */
-    --foreground:       42 28% 94%;        /* parchment */
+    --background:       60 4% 5%;
+    --foreground:       0 0% 100%;       /* pure white */
 
-    --card:             60 3% 8%;          /* surface */
-    --card-foreground:  42 28% 94%;
+    --card:             60 3% 8%;
+    --card-foreground:  0 0% 100%;
 
     --popover:          60 3% 10%;
-    --popover-foreground: 42 28% 94%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary:          350 71% 38%;       /* crimson */
-    --primary-foreground: 42 28% 94%;
+    --primary:          350 71% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary:        60 3% 13%;         /* surface-2 */
-    --secondary-foreground: 42 28% 94%;
+    --secondary:        60 3% 13%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted:            60 3% 13%;
-    --muted-foreground: 55 5% 55%;         /* slate */
+    --muted-foreground: 55 3% 65%;       /* lighter slate */
 
     --accent:           350 71% 38%;
     --accent-foreground: 42 28% 94%;
@@ -83,7 +87,7 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'DM Sans', system-ui, sans-serif;
   }
 
   /* Scrollbar */
@@ -94,7 +98,7 @@
 }
 
 @layer utilities {
-  .font-display   { font-family: 'Playfair Display', Georgia, serif; }
+  .font-display   { font-family: 'DM Sans', system-ui, sans-serif; }
   .font-body      { font-family: 'DM Sans', system-ui, sans-serif; }
   .font-mono      { font-family: 'DM Mono', 'Courier New', monospace; }
   .shadow-card    { box-shadow: var(--shadow-card); }

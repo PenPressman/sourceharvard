@@ -82,9 +82,6 @@ export default function BrowsePage() {
   const hasFilters = filterIndustry || filterStage || filterHiring || filterVC;
   const clearFilters = () => { setFilterIndustry(""); setFilterStage(""); setFilterHiring(false); setFilterVC(false); setSearch(""); };
 
-  const hiringCount = startups.filter(s => s.is_hiring).length;
-  const vcCount = startups.filter(s => s.open_to_vc).length;
-
   return (
     <div className="min-h-screen bg-[#0A0A09]">
       <Navbar />

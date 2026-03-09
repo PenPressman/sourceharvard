@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
-import { Search, Plus, X, ChevronDown, Flame, ThumbsUp, Building2, Clock, TrendingUp, Briefcase, Users } from "lucide-react";
+import { Search, Plus, X, ChevronDown, Flame, ThumbsUp, Building2, Clock, TrendingUp, Briefcase } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import StartupCard from "@/components/StartupCard";
 import type { Database } from "@/integrations/supabase/types";

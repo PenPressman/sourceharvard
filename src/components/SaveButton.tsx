@@ -56,8 +56,8 @@ export default function SaveButton({ startupId }: SaveButtonProps) {
       disabled={loading}
       className={`inline-flex items-center gap-1.5 h-8 px-3 font-body text-[13px] border rounded-sm transition-colors duration-150 ${
         saved
-          ? "bg-crimson/10 border-crimson/30 text-crimson hover:bg-crimson/15"
-          : "border-[#D6D0C4] text-slate hover:border-ink hover:text-ink"
+          ? "bg-crimson/15 border-crimson/40 text-crimson hover:bg-crimson/20"
+          : "border-[#2A2A28] text-[#8A8B80] hover:border-[#5A5B53] hover:text-[#F5F1E8]"
       }`}
     >
       {saved

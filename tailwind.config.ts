@@ -50,17 +50,21 @@ export default {
           DEFAULT:    "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Direct palette tokens for use in components
-        ink:       { DEFAULT: "#1A1A18" },
+        // Direct palette tokens
+        void:      { DEFAULT: "#0A0A09" },
+        ink:       { DEFAULT: "#0D0D0C" },
+        surface:   { DEFAULT: "#141413" },
+        "surface-2": { DEFAULT: "#1C1C1A" },
+        "surface-3": { DEFAULT: "#242422" },
+        rule:      { DEFAULT: "#2A2A28" },
         parchment: { DEFAULT: "#F5F1E8" },
-        slate:     { DEFAULT: "#4A4E5A" },
-        rule:      { DEFAULT: "#D6D0C4" },
+        slate:     { DEFAULT: "#8A8B80" },
+        "slate-dim": { DEFAULT: "#5A5B53" },
         crimson: {
           DEFAULT: "#A51C30",
           dim:     "#C4314A",
         },
-        surface:   { DEFAULT: "#FFFFFF" },
-        "muted-bg":{ DEFAULT: "#EDE9DE" },
+        "muted-bg":{ DEFAULT: "#1C1C1A" },
         sidebar: {
           DEFAULT:              "hsl(var(--sidebar-background))",
           foreground:           "hsl(var(--sidebar-foreground))",
@@ -78,7 +82,6 @@ export default {
         sm: "2px",
       },
       spacing: {
-        // Base-8 scale
         "1": "4px",
         "2": "8px",
         "3": "12px",
@@ -91,9 +94,10 @@ export default {
         "32": "128px",
       },
       boxShadow: {
-        card:       "var(--shadow-card)",
+        card:         "var(--shadow-card)",
         "card-hover": "var(--shadow-card-hover)",
-        glow:       "var(--shadow-glow)",
+        glow:         "var(--shadow-glow)",
+        crimson:      "var(--shadow-crimson)",
       },
       keyframes: {
         "accordion-down": {
@@ -108,11 +112,16 @@ export default {
           from: { opacity: "0", transform: "translateY(12px)" },
           to:   { opacity: "1", transform: "translateY(0)" },
         },
+        "slide-in-right": {
+          from: { opacity: "0", transform: "translateX(16px)" },
+          to:   { opacity: "1", transform: "translateX(0)" },
+        },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up":   "accordion-up 0.2s ease-out",
-        "fade-in":        "fade-in 0.2s ease-out",
+        "accordion-down":   "accordion-down 0.2s ease-out",
+        "accordion-up":     "accordion-up 0.2s ease-out",
+        "fade-in":          "fade-in 0.2s ease-out",
+        "slide-in-right":   "slide-in-right 0.25s ease-out",
       },
     },
   },

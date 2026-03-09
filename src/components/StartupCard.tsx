@@ -15,34 +15,30 @@ interface StartupCardProps {
   score?: EndorsementScore;
 }
 
-// Stage badge — use DM Mono, muted-bg
-const stageBadge = (stage: string) =>
-  `inline-block font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#EDE9DE] text-[#4A4E5A] border border-[#D6D0C4] rounded-sm`;
-
-// Industry badge
-const industryBadge = (industry: string) =>
-  `inline-block font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 rounded-sm border font-normal`;
-
 const industryColors: Record<string, string> = {
-  "Fintech":       "bg-emerald-50 text-emerald-700 border-emerald-200",
-  "Biotech":       "bg-sky-50 text-sky-700 border-sky-200",
-  "AI/ML":         "bg-violet-50 text-violet-700 border-violet-200",
-  "Consumer":      "bg-orange-50 text-orange-700 border-orange-200",
-  "B2B SaaS":      "bg-cyan-50 text-cyan-700 border-cyan-200",
-  "Hardware":      "bg-stone-50 text-stone-600 border-stone-200",
-  "Social Impact": "bg-teal-50 text-teal-700 border-teal-200",
-  "Deep Tech":     "bg-indigo-50 text-indigo-700 border-indigo-200",
-  "Other":         "bg-[#EDE9DE] text-[#4A4E5A] border-[#D6D0C4]",
+  "Fintech":       "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+  "Biotech":       "bg-sky-950/60 text-sky-400 border-sky-800/60",
+  "AI/ML":         "bg-violet-950/60 text-violet-400 border-violet-800/60",
+  "Consumer":      "bg-orange-950/60 text-orange-400 border-orange-800/60",
+  "B2B SaaS":      "bg-cyan-950/60 text-cyan-400 border-cyan-800/60",
+  "Hardware":      "bg-[#1C1C1A] text-[#8A8B80] border-[#2A2A28]",
+  "Social Impact": "bg-teal-950/60 text-teal-400 border-teal-800/60",
+  "Deep Tech":     "bg-indigo-950/60 text-indigo-400 border-indigo-800/60",
+  "Other":         "bg-[#1C1C1A] text-[#8A8B80] border-[#2A2A28]",
 };
 
 export default function StartupCard({ startup, score }: StartupCardProps) {
   return (
     <Link to={`/startup/${startup.id}`} className="block group">
-      <div className="bg-white border border-[#D6D0C4] rounded-sm p-6 shadow-card transition-all duration-150 group-hover:border-[#1A1A18] flex flex-col h-full">
+      <div className="bg-[#141413] border border-[#2A2A28] rounded-sm p-6 transition-all duration-150 group-hover:border-[#A51C30]/60 group-hover:shadow-crimson flex flex-col h-full relative overflow-hidden">
 
-        {/* Source type badge row */}
+        {/* Subtle corner accent */}
+        <div className="absolute top-0 left-0 w-8 h-px bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+        <div className="absolute top-0 left-0 h-8 w-px bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+
+        {/* Badge row */}
         <div className="flex items-center justify-between gap-2 mb-4">
-          <span className={`${industryBadge(startup.industry)} ${industryColors[startup.industry] ?? industryColors["Other"]}`}>
+          <span className={`inline-block font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 border rounded-sm ${industryColors[startup.industry] ?? industryColors["Other"]}`}>
             {startup.industry}
           </span>
           <div className="flex items-center gap-1.5">
@@ -52,26 +48,28 @@ export default function StartupCard({ startup, score }: StartupCardProps) {
               </span>
             )}
             {startup.open_to_vc && (
-              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#EDE9DE] text-[#4A4E5A] border border-[#D6D0C4] rounded-sm">
+              <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28] rounded-sm">
                 <TrendingUp className="w-2.5 h-2.5" />VC
               </span>
             )}
           </div>
         </div>
 
-        {/* Title — Playfair Display */}
-        <h3 className="font-display font-bold text-[20px] text-[#1A1A18] mb-2 leading-[1.3] group-hover:text-crimson transition-colors duration-150 line-clamp-1">
+        {/* Title */}
+        <h3 className="font-display font-bold text-[20px] text-[#F5F1E8] mb-2 leading-[1.3] group-hover:text-crimson transition-colors duration-150 line-clamp-1">
           {startup.name}
         </h3>
 
-        {/* Description — DM Sans */}
-        <p className="font-body text-[14px] text-[#4A4E5A] leading-relaxed line-clamp-2 flex-1 mb-4">
+        {/* Description */}
+        <p className="font-body text-[14px] text-[#8A8B80] leading-relaxed line-clamp-2 flex-1 mb-4">
           {startup.description}
         </p>
 
         {/* Footer row */}
-        <div className="flex items-center justify-between gap-2 pt-4 border-t border-[#D6D0C4]">
-          <span className={stageBadge(startup.stage)}>{startup.stage}</span>
+        <div className="flex items-center justify-between gap-2 pt-4 border-t border-[#2A2A28]">
+          <span className="inline-block font-mono text-[11px] uppercase tracking-[0.06em] px-2 py-0.5 bg-[#1C1C1A] text-[#8A8B80] border border-[#2A2A28] rounded-sm">
+            {startup.stage}
+          </span>
           {score && <ScoreBadges total={score.total} investorCount={score.investorCount} />}
         </div>
       </div>

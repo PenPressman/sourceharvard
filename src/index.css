@@ -2,40 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Source Harvard — Institutional Editorial Design System */
+/* Source Harvard — Dark Institutional / Mission-Control Design System */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
-    /* ── Palette ─────────────────────────── */
-    --color-ink:        #1A1A18;
-    --color-parchment:  #F5F1E8;
-    --color-slate:      #4A4E5A;
-    --color-rule:       #D6D0C4;
-    --color-crimson:    #A51C30;
-    --color-crimson-dim:#C4314A;
-    --color-surface:    #FFFFFF;
-    --color-muted-bg:   #EDE9DE;
+    /* ── Dark Palette ─────────────────────────── */
+    --color-void:       #0A0A09;   /* deepest background */
+    --color-ink:        #0D0D0C;   /* primary background */
+    --color-surface:    #141413;   /* card surface */
+    --color-surface-2:  #1C1C1A;   /* elevated surface */
+    --color-surface-3:  #242422;   /* subtle element bg */
+    --color-rule:       #2A2A28;   /* dividers, borders */
+    --color-rule-dim:   #1E1E1C;   /* subtle borders */
+    --color-parchment:  #F5F1E8;   /* primary text */
+    --color-slate:      #8A8B80;   /* secondary text */
+    --color-slate-dim:  #5A5B53;   /* muted text */
+    --color-crimson:    #A51C30;   /* accent */
+    --color-crimson-dim:#C4314A;   /* hover accent */
+    --color-crimson-glow: rgba(165,28,48,0.15);
 
     /* ── Semantic tokens (Tailwind-compatible HSL format) ─ */
-    --background:       42 28% 94%;       /* parchment */
-    --foreground:       60 3% 10%;        /* ink */
+    --background:       60 4% 5%;          /* void */
+    --foreground:       42 28% 94%;        /* parchment */
 
-    --card:             0 0% 100%;        /* surface white */
-    --card-foreground:  60 3% 10%;
+    --card:             60 3% 8%;          /* surface */
+    --card-foreground:  42 28% 94%;
 
-    --popover:          0 0% 100%;
-    --popover-foreground: 60 3% 10%;
+    --popover:          60 3% 10%;
+    --popover-foreground: 42 28% 94%;
 
-    --primary:          350 71% 38%;      /* crimson */
+    --primary:          350 71% 38%;       /* crimson */
     --primary-foreground: 42 28% 94%;
 
-    --secondary:        38 24% 88%;       /* muted-bg */
-    --secondary-foreground: 60 3% 10%;
+    --secondary:        60 3% 13%;         /* surface-2 */
+    --secondary-foreground: 42 28% 94%;
 
-    --muted:            38 24% 88%;
-    --muted-foreground: 226 9% 32%;       /* slate */
+    --muted:            60 3% 13%;
+    --muted-foreground: 55 5% 55%;         /* slate */
 
     --accent:           350 71% 38%;
     --accent-foreground: 42 28% 94%;
@@ -43,25 +48,26 @@
     --destructive:      0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border:           38 18% 80%;       /* rule */
-    --input:            38 18% 80%;
+    --border:           60 3% 16%;         /* rule */
+    --input:            60 3% 16%;
     --ring:             350 71% 38%;
-    --radius:           0.25rem;          /* 4px — editorial, not bubbly */
+    --radius:           0.25rem;
 
     /* ── Sidebar ────────────────────────── */
-    --sidebar-background: 42 28% 94%;
-    --sidebar-foreground: 226 9% 32%;
+    --sidebar-background: 60 4% 5%;
+    --sidebar-foreground: 55 5% 55%;
     --sidebar-primary: 350 71% 38%;
     --sidebar-primary-foreground: 42 28% 94%;
-    --sidebar-accent: 38 24% 88%;
-    --sidebar-accent-foreground: 60 3% 10%;
-    --sidebar-border: 38 18% 80%;
+    --sidebar-accent: 60 3% 13%;
+    --sidebar-accent-foreground: 42 28% 94%;
+    --sidebar-border: 60 3% 16%;
     --sidebar-ring: 350 71% 38%;
 
     /* ── Shadows ────────────────────────── */
-    --shadow-card: 0 1px 4px rgba(0,0,0,0.06);
-    --shadow-card-hover: 0 1px 4px rgba(0,0,0,0.06);
-    --shadow-glow: 0 0 0 3px rgba(165,28,48,0.12);
+    --shadow-card:       0 1px 4px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+    --shadow-card-hover: 0 2px 8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+    --shadow-glow:       0 0 0 3px rgba(165,28,48,0.20);
+    --shadow-crimson:    0 0 24px rgba(165,28,48,0.25);
   }
 }
 
@@ -73,11 +79,18 @@
     font-family: 'DM Sans', system-ui, sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
+    background-color: #0A0A09;
   }
 
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', Georgia, serif;
   }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0A0A09; }
+  ::-webkit-scrollbar-thumb { background: #2A2A28; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #A51C30; }
 }
 
 @layer utilities {
@@ -87,6 +100,7 @@
   .shadow-card    { box-shadow: var(--shadow-card); }
   .shadow-card-hover { box-shadow: var(--shadow-card-hover); }
   .shadow-glow    { box-shadow: var(--shadow-glow); }
+  .shadow-crimson { box-shadow: var(--shadow-crimson); }
 
   /* Modular type scale (1.25 ratio) */
   .text-scale-xs   { font-size: 12px; }
@@ -97,14 +111,60 @@
   .text-scale-xl   { font-size: 31px; }
   .text-scale-2xl  { font-size: 39px; }
   .text-scale-3xl  { font-size: 49px; }
+
+  /* Mission-control grid overlay */
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(165,28,48,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(165,28,48,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Scanline / noise texture */
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+  }
+
+  /* Horizontal ticker line */
+  .ticker-border {
+    border-top: 1px solid #2A2A28;
+    border-bottom: 1px solid #2A2A28;
+  }
 }
 
-/* ── Subtle content animations ────────────────────── */
+/* ── Animations ────────────────────────── */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fade-in-up 0.2s ease-out forwards;
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
+
+@keyframes scan-line {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100vh); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-crimson {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(165,28,48,0); }
+  50%       { box-shadow: 0 0 12px 2px rgba(165,28,48,0.35); }
+}
+
+.animate-fade-in     { animation: fade-in-up 0.2s ease-out forwards; }
+.animate-blink       { animation: blink-cursor 1s step-end infinite; }
+.animate-count-up    { animation: count-up 0.4s ease-out forwards; }
+.animate-pulse-crimson { animation: pulse-crimson 2s ease-in-out infinite; }

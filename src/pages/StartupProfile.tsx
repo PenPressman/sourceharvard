@@ -106,17 +106,17 @@ export default function StartupProfilePage() {
                 <h1 className="font-display font-bold text-[31px] text-white leading-[1.1] tracking-tight">{startup.name}</h1>
                 <div className="flex gap-2 flex-wrap items-center">
                   {startup.is_hiring && (
-                    <span className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 bg-crimson text-white rounded-sm">
+                    <span className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 bg-[#FF6B35]/15 text-[#FF6B35] border border-[#FF6B35]/30 rounded-sm">
                       <Briefcase className="w-3 h-3" />Hiring
                     </span>
                   )}
                   {startup.open_to_vc && (
-                    <span className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 bg-[#1C1C1A] text-[#C8C9C0] border border-[#2A2A28] rounded-sm">
+                    <span className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 bg-[#22C55E]/10 text-[#22C55E] border border-[#22C55E]/30 rounded-sm">
                       <TrendingUp className="w-3 h-3" />Open to VCs
                     </span>
                   )}
                   {s.looking_for_cofounder && (
-                    <span className="font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 bg-[#1C1C1A] text-[#C8C9C0] border border-[#2A2A28] rounded-sm">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.06em] px-2.5 py-1 bg-[#FF4D8D]/10 text-[#FF4D8D] border border-[#FF4D8D]/30 rounded-sm">
                       Co-Founder Needed
                     </span>
                   )}

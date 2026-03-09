@@ -97,6 +97,14 @@ export default function BrowsePage() {
         <div className="absolute bottom-0 right-1/3 w-[300px] h-[200px] bg-[#FF6B35]/4 rounded-full blur-[90px] pointer-events-none" />
         {/* Crimson vertical accent bar */}
         <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-crimson/40 to-transparent" />
+        {/* Moon */}
+        <img
+          src={moonImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[-80px] top-[-60px] w-[520px] opacity-[0.13] pointer-events-none select-none"
+          style={{ filter: "grayscale(1) brightness(1.4)" }}
+        />
 
         <div className="container mx-auto px-6 py-24 relative">
           <div className="max-w-3xl">

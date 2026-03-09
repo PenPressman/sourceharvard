@@ -13,8 +13,8 @@ type StageType = Database["public"]["Enums"]["stage_type"];
 
 interface EndorsementScore { total: number; investorCount: number; }
 
-const INDUSTRIES: IndustryType[] = ["Fintech", "Biotech", "AI/ML", "Consumer", "B2B SaaS", "Hardware", "Social Impact", "Deep Tech" as IndustryType, "Other"];
-const STAGES: StageType[] = ["Idea", "Pre-seed", "Seed", "Series A+"];
+const INDUSTRIES: IndustryType[] = ["AI/ML", "Fintech", "Biotech", "B2B SaaS", "Consumer", "Deep Tech", "HealthTech", "EdTech", "Climate Tech", "Web3/Crypto", "Robotics", "Media/Content", "Legal Tech", "Real Estate", "GovTech", "FoodTech", "Hardware", "Social Impact", "Other"] as IndustryType[];
+const STAGES: StageType[] = ["Pre-idea", "Idea", "Pre-seed", "Seed", "Series A+", "Series B+", "Revenue Stage", "Bootstrapped"] as StageType[];
 
 const SORT_OPTIONS = [
   { value: "recent",            label: "Most Recent",       icon: Clock },
@@ -155,6 +155,16 @@ export default function BrowsePage() {
               { name: "B2B SaaS",       color: "text-[#FF4D8D]",        dot: "bg-[#FF4D8D]" },
               { name: "Deep Tech",      color: "text-indigo-400",       dot: "bg-indigo-400" },
               { name: "Consumer",       color: "text-[#FF6B35]",        dot: "bg-[#FF6B35]" },
+              { name: "HealthTech",     color: "text-emerald-400",      dot: "bg-emerald-400" },
+              { name: "EdTech",         color: "text-amber-400",        dot: "bg-amber-400" },
+              { name: "Climate Tech",   color: "text-[#22C55E]",        dot: "bg-[#22C55E]" },
+              { name: "Web3/Crypto",    color: "text-purple-400",       dot: "bg-purple-400" },
+              { name: "Robotics",       color: "text-cyan-400",         dot: "bg-cyan-400" },
+              { name: "Media/Content",  color: "text-[#FF4D8D]",        dot: "bg-[#FF4D8D]" },
+              { name: "Legal Tech",     color: "text-orange-400",       dot: "bg-orange-400" },
+              { name: "Real Estate",    color: "text-teal-400",         dot: "bg-teal-400" },
+              { name: "GovTech",        color: "text-blue-400",         dot: "bg-blue-400" },
+              { name: "FoodTech",       color: "text-[#FF6B35]",        dot: "bg-[#FF6B35]" },
               { name: "Hardware",       color: "text-[#C8C9C0]",        dot: "bg-[#C8C9C0]" },
               { name: "Social Impact",  color: "text-teal-400",         dot: "bg-teal-400" },
             ].map(({ name, color, dot }) => {

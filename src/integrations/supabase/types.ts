@@ -452,8 +452,26 @@ export type Database = {
         | "Social Impact"
         | "Other"
         | "Deep Tech"
+        | "HealthTech"
+        | "EdTech"
+        | "Climate Tech"
+        | "Web3/Crypto"
+        | "Robotics"
+        | "Media/Content"
+        | "Legal Tech"
+        | "Real Estate"
+        | "GovTech"
+        | "FoodTech"
       investor_status: "pending" | "approved" | "rejected"
-      stage_type: "Idea" | "Pre-seed" | "Seed" | "Series A+" | "Pre-idea"
+      stage_type:
+        | "Idea"
+        | "Pre-seed"
+        | "Seed"
+        | "Series A+"
+        | "Pre-idea"
+        | "Bootstrapped"
+        | "Series B+"
+        | "Revenue Stage"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -594,9 +612,28 @@ export const Constants = {
         "Social Impact",
         "Other",
         "Deep Tech",
+        "HealthTech",
+        "EdTech",
+        "Climate Tech",
+        "Web3/Crypto",
+        "Robotics",
+        "Media/Content",
+        "Legal Tech",
+        "Real Estate",
+        "GovTech",
+        "FoodTech",
       ],
       investor_status: ["pending", "approved", "rejected"],
-      stage_type: ["Idea", "Pre-seed", "Seed", "Series A+", "Pre-idea"],
+      stage_type: [
+        "Idea",
+        "Pre-seed",
+        "Seed",
+        "Series A+",
+        "Pre-idea",
+        "Bootstrapped",
+        "Series B+",
+        "Revenue Stage",
+      ],
     },
   },
 } as const

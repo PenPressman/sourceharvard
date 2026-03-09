@@ -15,8 +15,8 @@ type CompensationType = Database["public"]["Enums"]["compensation_type"];
 
 interface OpenRole { title: string; compensation: CompensationType; hours_per_week: number; }
 
-const INDUSTRIES: IndustryType[] = ["Fintech", "Biotech", "AI/ML", "Consumer", "B2B SaaS", "Hardware", "Social Impact", "Deep Tech" as IndustryType, "Other"];
-const STAGES: StageType[] = ["Pre-idea" as StageType, "Idea", "Pre-seed", "Seed", "Series A+"];
+const INDUSTRIES: IndustryType[] = ["AI/ML", "Fintech", "Biotech", "B2B SaaS", "Consumer", "Deep Tech", "HealthTech", "EdTech", "Climate Tech", "Web3/Crypto", "Robotics", "Media/Content", "Legal Tech", "Real Estate", "GovTech", "FoodTech", "Hardware", "Social Impact", "Other"] as IndustryType[];
+const STAGES: StageType[] = ["Pre-idea", "Idea", "Pre-seed", "Seed", "Series A+", "Series B+", "Revenue Stage", "Bootstrapped"] as StageType[];
 const COMPENSATIONS: CompensationType[] = ["Paid", "Equity", "Unpaid"];
 const BUSINESS_MODELS = ["B2B", "B2C", "B2B2C", "Marketplace", "Other"];
 

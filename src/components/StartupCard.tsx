@@ -16,14 +16,24 @@ interface StartupCardProps {
 }
 
 const industryColors: Record<string, string> = {
+  "AI/ML":         "bg-violet-950/60 text-violet-400 border-violet-800/60",
   "Fintech":       "bg-[#22C55E]/10 text-[#22C55E] border-[#22C55E]/30",
   "Biotech":       "bg-sky-950/60 text-sky-400 border-sky-800/60",
-  "AI/ML":         "bg-violet-950/60 text-violet-400 border-violet-800/60",
-  "Consumer":      "bg-[#FF6B35]/10 text-[#FF6B35] border-[#FF6B35]/30",
   "B2B SaaS":      "bg-[#FF4D8D]/10 text-[#FF4D8D] border-[#FF4D8D]/30",
+  "Consumer":      "bg-[#FF6B35]/10 text-[#FF6B35] border-[#FF6B35]/30",
+  "Deep Tech":     "bg-indigo-950/60 text-indigo-400 border-indigo-800/60",
   "Hardware":      "bg-[#1C1C1A] text-[#A8A9A0] border-[#2A2A28]",
   "Social Impact": "bg-teal-950/60 text-teal-400 border-teal-800/60",
-  "Deep Tech":     "bg-indigo-950/60 text-indigo-400 border-indigo-800/60",
+  "HealthTech":    "bg-emerald-950/60 text-emerald-400 border-emerald-800/60",
+  "EdTech":        "bg-amber-950/60 text-amber-400 border-amber-800/60",
+  "Climate Tech":  "bg-[#22C55E]/10 text-[#22C55E] border-[#22C55E]/30",
+  "Web3/Crypto":   "bg-purple-950/60 text-purple-400 border-purple-800/60",
+  "Robotics":      "bg-cyan-950/60 text-cyan-400 border-cyan-800/60",
+  "Media/Content": "bg-[#FF4D8D]/10 text-[#FF4D8D] border-[#FF4D8D]/30",
+  "Legal Tech":    "bg-orange-950/60 text-orange-400 border-orange-800/60",
+  "Real Estate":   "bg-teal-950/60 text-teal-400 border-teal-800/60",
+  "GovTech":       "bg-blue-950/60 text-blue-400 border-blue-800/60",
+  "FoodTech":      "bg-[#FF6B35]/10 text-[#FF6B35] border-[#FF6B35]/30",
   "Other":         "bg-[#1C1C1A] text-[#A8A9A0] border-[#2A2A28]",
 };
 

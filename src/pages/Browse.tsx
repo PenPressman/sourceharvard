@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
+import moonImg from "@/assets/moon.png";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Search, Plus, X, ChevronDown, Flame, ThumbsUp, Building2, Clock, TrendingUp, Briefcase } from "lucide-react";

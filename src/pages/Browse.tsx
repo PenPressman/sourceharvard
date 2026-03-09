@@ -352,7 +352,7 @@ export default function BrowsePage() {
                 <span className="font-body font-light text-[#8A8B80] text-[13px]">Harvard</span>
               </div>
               <p className="font-body text-[14px] text-[#C8C9C0] leading-relaxed max-w-xs">
-                The Harvard startup directory connecting founders, investors, and talent across the ecosystem.
+                Browse ventures built by Harvard founders. Find co-founders, explore careers, or signal interest as an investor.
               </p>
             </div>
             {/* Directory */}

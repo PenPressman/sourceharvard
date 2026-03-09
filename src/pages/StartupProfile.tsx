@@ -84,8 +84,10 @@ export default function StartupProfilePage() {
     <div className="min-h-screen bg-[#0A0A09]">
       <Navbar />
 
-      {/* Crimson glow behind content */}
+      {/* Ambient glows */}
       <div className="absolute top-16 left-0 right-0 h-64 bg-gradient-to-b from-crimson/5 to-transparent pointer-events-none" />
+      <div className="absolute top-32 right-0 w-96 h-96 bg-[#FF4D8D]/4 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-64 left-0 w-80 h-80 bg-[#FF6B35]/4 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto py-12 px-6 max-w-3xl relative">
 

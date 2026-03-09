@@ -98,7 +98,7 @@
 }
 
 @layer utilities {
-  .font-display   { font-family: 'Playfair Display', Georgia, serif; }
+  .font-display   { font-family: 'DM Sans', system-ui, sans-serif; }
   .font-body      { font-family: 'DM Sans', system-ui, sans-serif; }
   .font-mono      { font-family: 'DM Mono', 'Courier New', monospace; }
   .shadow-card    { box-shadow: var(--shadow-card); }

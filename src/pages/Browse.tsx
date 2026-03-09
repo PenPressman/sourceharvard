@@ -25,16 +25,6 @@ const SORT_OPTIONS = [
 
 type SortKey = typeof SORT_OPTIONS[number]["value"];
 
-// Animated stat counter component
-function StatBlock({ value, label, delay = 0 }: { value: string; label: string; delay?: number }) {
-  return (
-    <div className="flex flex-col" style={{ animationDelay: `${delay}ms` }}>
-      <span className="font-display font-bold text-[31px] text-[#F5F1E8] leading-none">{value}</span>
-      <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-[#5A5B53] mt-1">{label}</span>
-    </div>
-  );
-}
-
 export default function BrowsePage() {
   const { user } = useAuth();
   const [startups, setStartups] = useState<Startup[]>([]);

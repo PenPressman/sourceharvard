@@ -9,7 +9,7 @@ type AppRole = "founder" | "investor" | "student" | "applicant";
 
 const SKILLS = ["Engineering", "Design", "Product", "Sales", "Marketing", "Finance", "Research", "Operations"];
 const INDUSTRIES = ["Fintech", "Biotech", "AI/ML", "Consumer", "B2B SaaS", "Hardware", "Social Impact", "Deep Tech", "Other"];
-const STAGES = ["Idea", "Pre-seed", "Seed", "Series A+"];
+const STAGES = ["Pre-idea", "Idea", "Pre-seed", "Seed", "Series A+", "Series B+", "Revenue Stage", "Bootstrapped"];
 const LOOKING_FOR = ["Internship", "Part-time role", "Co-founder opportunity", "Full-time after graduation"];
 
 interface RoleCardProps {

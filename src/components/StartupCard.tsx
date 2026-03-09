@@ -61,7 +61,7 @@ export default function StartupCard({ startup, score }: StartupCardProps) {
         </h3>
 
         {/* Description */}
-        <p className="font-body text-[14px] text-[#A8A9A0] leading-relaxed line-clamp-2 flex-1 mb-4">
+        <p className="font-body text-[14px] text-[#C8C9C0] leading-relaxed line-clamp-2 flex-1 mb-4">
           {startup.description}
         </p>
 

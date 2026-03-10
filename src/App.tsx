@@ -22,7 +22,7 @@ const App = () => (
       <AuthProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/sourceharvard">
           <Routes>
             <Route path="/" element={<Browse />} />
             <Route path="/login" element={<Login />} />
